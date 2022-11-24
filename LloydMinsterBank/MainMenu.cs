@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LloydMinsterBank
 {
-    public partial class Menu : Form
+    public partial class MainMenu : Form
     {
-        public Menu()
+        public MainMenu()
         {
             InitializeComponent();
         }
