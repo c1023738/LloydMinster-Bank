@@ -50,11 +50,11 @@
     <Compile Include="CurrentAccount.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="LongTermDepositAccount.cs" />
-    <Compile Include="Menu.cs">
+    <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
