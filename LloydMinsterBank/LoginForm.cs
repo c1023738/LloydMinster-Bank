@@ -22,6 +22,14 @@ namespace LloydMinsterBank
 
         protected string userEnteredPin;
         Login userLogin = new Login();
+        List<Account> userAccount = new List<Account>();
+
+        // 
+
+        public void LoadCustomer(int customerID, int customerPin)
+        {
+            userAccount = SqliteDataAccess.LoadCustomer(customerID, customerPin);
+        }
 
         private void btnPinNum1_Click(object sender, EventArgs e)
         {
@@ -83,6 +91,8 @@ namespace LloydMinsterBank
         private void btnEnterPin_Click(object sender, EventArgs e)
         {
             int formatedPin = Convert.ToInt32(userEnteredPin);
+            int customerID = int.Parse(txtCustomerIDInput.Text);
+            LoadCustomer(customerID,formatedPin);
             if (userLogin.VerifyPin(formatedPin) == true)
             {
                 this.Hide();

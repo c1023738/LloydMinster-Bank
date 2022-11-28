@@ -32,6 +32,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblAskUserText = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnEmpty3 = new System.Windows.Forms.Button();
+            this.btnEnterPin = new System.Windows.Forms.Button();
+            this.btnClearPin = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnEmpty2 = new System.Windows.Forms.Button();
             this.btnPinNum0 = new System.Windows.Forms.Button();
             this.btnEmpty1 = new System.Windows.Forms.Button();
@@ -44,11 +48,8 @@
             this.btnPinNum2 = new System.Windows.Forms.Button();
             this.btnPinNum6 = new System.Windows.Forms.Button();
             this.btnPinNum1 = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnClearPin = new System.Windows.Forms.Button();
-            this.btnEnterPin = new System.Windows.Forms.Button();
-            this.btnEmpty3 = new System.Windows.Forms.Button();
             this.lblPinText = new System.Windows.Forms.Label();
+            this.txtCustomerIDInput = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,6 +103,45 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(430, 296);
             this.panel3.TabIndex = 3;
+            // 
+            // btnEmpty3
+            // 
+            this.btnEmpty3.Location = new System.Drawing.Point(325, 222);
+            this.btnEmpty3.Name = "btnEmpty3";
+            this.btnEmpty3.Size = new System.Drawing.Size(100, 74);
+            this.btnEmpty3.TabIndex = 15;
+            this.btnEmpty3.UseVisualStyleBackColor = true;
+            this.btnEmpty3.Click += new System.EventHandler(this.btnEmpty3_Click);
+            // 
+            // btnEnterPin
+            // 
+            this.btnEnterPin.Location = new System.Drawing.Point(325, 148);
+            this.btnEnterPin.Name = "btnEnterPin";
+            this.btnEnterPin.Size = new System.Drawing.Size(100, 74);
+            this.btnEnterPin.TabIndex = 14;
+            this.btnEnterPin.Text = "Enter";
+            this.btnEnterPin.UseVisualStyleBackColor = true;
+            this.btnEnterPin.Click += new System.EventHandler(this.btnEnterPin_Click);
+            // 
+            // btnClearPin
+            // 
+            this.btnClearPin.Location = new System.Drawing.Point(325, 74);
+            this.btnClearPin.Name = "btnClearPin";
+            this.btnClearPin.Size = new System.Drawing.Size(100, 74);
+            this.btnClearPin.TabIndex = 13;
+            this.btnClearPin.Text = "Clear";
+            this.btnClearPin.UseVisualStyleBackColor = true;
+            this.btnClearPin.Click += new System.EventHandler(this.btnClearPin_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(325, 0);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 74);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEmpty2
             // 
@@ -220,45 +260,6 @@
             this.btnPinNum1.UseVisualStyleBackColor = true;
             this.btnPinNum1.Click += new System.EventHandler(this.btnPinNum1_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(325, 0);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 74);
-            this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnClearPin
-            // 
-            this.btnClearPin.Location = new System.Drawing.Point(325, 74);
-            this.btnClearPin.Name = "btnClearPin";
-            this.btnClearPin.Size = new System.Drawing.Size(100, 74);
-            this.btnClearPin.TabIndex = 13;
-            this.btnClearPin.Text = "Clear";
-            this.btnClearPin.UseVisualStyleBackColor = true;
-            this.btnClearPin.Click += new System.EventHandler(this.btnClearPin_Click);
-            // 
-            // btnEnterPin
-            // 
-            this.btnEnterPin.Location = new System.Drawing.Point(325, 148);
-            this.btnEnterPin.Name = "btnEnterPin";
-            this.btnEnterPin.Size = new System.Drawing.Size(100, 74);
-            this.btnEnterPin.TabIndex = 14;
-            this.btnEnterPin.Text = "Enter";
-            this.btnEnterPin.UseVisualStyleBackColor = true;
-            this.btnEnterPin.Click += new System.EventHandler(this.btnEnterPin_Click);
-            // 
-            // btnEmpty3
-            // 
-            this.btnEmpty3.Location = new System.Drawing.Point(325, 222);
-            this.btnEmpty3.Name = "btnEmpty3";
-            this.btnEmpty3.Size = new System.Drawing.Size(100, 74);
-            this.btnEmpty3.TabIndex = 15;
-            this.btnEmpty3.UseVisualStyleBackColor = true;
-            this.btnEmpty3.Click += new System.EventHandler(this.btnEmpty3_Click);
-            // 
             // lblPinText
             // 
             this.lblPinText.AutoSize = true;
@@ -269,11 +270,20 @@
             this.lblPinText.TabIndex = 4;
             this.lblPinText.Text = "******";
             // 
+            // txtCustomerIDInput
+            // 
+            this.txtCustomerIDInput.Location = new System.Drawing.Point(243, 163);
+            this.txtCustomerIDInput.Name = "txtCustomerIDInput";
+            this.txtCustomerIDInput.Size = new System.Drawing.Size(100, 20);
+            this.txtCustomerIDInput.TabIndex = 5;
+            this.txtCustomerIDInput.Text = "Customer ID PLZ";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 516);
+            this.Controls.Add(this.txtCustomerIDInput);
             this.Controls.Add(this.lblPinText);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblAskUserText);
@@ -311,5 +321,6 @@
         private System.Windows.Forms.Button btnClearPin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblPinText;
+        private System.Windows.Forms.TextBox txtCustomerIDInput;
     }
 }
