@@ -1,0 +1,11 @@
+D:\Documents\C#\Assignment\LloydMinsterBank\bin\Debug\LloydMinsterBank.exe.config
+D:\Documents\C#\Assignment\LloydMinsterBank\bin\Debug\LloydMinsterBank.exe
+D:\Documents\C#\Assignment\LloydMinsterBank\bin\Debug\LloydMinsterBank.pdb
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.csproj.AssemblyReference.cache
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.csproj.SuggestedBindingRedirects.cache
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.LoginForm.resources
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.Properties.Resources.resources
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.csproj.GenerateResource.cache
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.csproj.CoreCompileInputs.cache
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.exe
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.pdb
