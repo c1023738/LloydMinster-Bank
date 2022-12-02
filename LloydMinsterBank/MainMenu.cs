@@ -16,5 +16,32 @@ namespace LloydMinsterBank
         {
             InitializeComponent();
         }
+
+        private void btn_CurrentAccount_Click(object sender, EventArgs e)
+        {
+            btn_Withdraw.Show();
+
+        }
+
+        private void btn_SimpleDepositAccount_Click(object sender, EventArgs e)
+        {
+            btn_Withdraw.Hide();
+
+        }
+
+        private void btn_LongTermDepositAccount_Click(object sender, EventArgs e)
+        {
+            btn_Withdraw.Hide();
+        }
+
+        private void btn_Withdraw_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Deposit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
