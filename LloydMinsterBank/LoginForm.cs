@@ -25,8 +25,8 @@ namespace LloydMinsterBank
 
         protected string userEnteredPin;
         Login userLogin = new Login();
-        List<Account> userAccount = new List<Account>();
 
+        List<Account> userAccount = new Account();
 
 
 
@@ -103,15 +103,16 @@ namespace LloydMinsterBank
                 while (result.Read())
                 {
                     string temp = result["CustomerID"].ToString();
-                    int CID = int.Parse(temp);
+                    int userID = int.Parse(temp);
                     temp = result["AccountBalance"].ToString();
                     double AccountBalance = double.Parse(temp);
                     temp = result["OverdraftLimit"].ToString();
                     double Overdraft = double.Parse(temp);
                     temp = result["Pin"].ToString();
                     int pin = int.Parse(temp);
+                    
 
-                   // userAccount.Add(CID, result["FirstName"].ToString(), result["LastName"].ToString(), AccountBalance, Overdraft, pin);
+                  userAccount.Add(new Account(userID, result["FirstName"].ToString(), result["LastName"].ToString(), AccountBalance, Overdraft, pin));
 
                 }
             }

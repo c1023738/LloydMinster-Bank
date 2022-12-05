@@ -10,13 +10,13 @@
     protected double salary;
 
 
-    public Account(int cID,string fn,string ln,double aB,double ol,int pin/*,bool spA*/)
+    public Account(int cID, string fn, string ln, double aB, double ol, int pin)
     {
-        firstName = fn;
-        lastName = ln;  
-        overdraftLimit = ol;
-        customerID = cID;
-        /*specialAccount = spA;*/
+        customerID= cID;
+        firstName= fn;
+        lastName= ln;
+        balance = aB;
+        overdraftLimit= ol;
         this.pin = pin;
     }
 
