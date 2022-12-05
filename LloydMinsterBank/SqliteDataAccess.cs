@@ -7,26 +7,28 @@ using System.Linq;
 
 public class SqliteDataAccess
 {
-    public static List<Account> LoadCustomer(int customerID, int customerPin)
+    public SQLiteConnection myConnection;
+
+    public SqliteDataAccess()
     {
-        using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString())) // Open Connection and Makes sure to close the conntection to the Database (Prevents Any Errors Occuring)
+        myConnection = new SQLiteConnection("Data Source=UserDatabase.db");
+
+
+    }
+    public void OpenConnection()
+    {
+        if (myConnection.State != System.Data.ConnectionState.Open)
         {
-            var output = cnn.Query<Account>("select CustomerID,FirstName,LastName,AccountBalance,OverdraftLimit,Pin from Customer WHERE CustomerID= '"+ customerID+"' AND WHERE Pin= '" + customerPin + "'", new DynamicParameters());
-            return output.ToList();
-            
+            myConnection.Open();
         }
     }
-
-    public void SaveCustomer(Account acc)
+    public void CloseConnection()
     {
-        using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))// Open Connection and Makes sure to close the conntection to the Database (Prevents Any Errors Occuring)
+        if (myConnection.State != System.Data.ConnectionState.Closed)
         {
-
+            myConnection.Close();
         }
     }
+}
 
-    private static string LoadConnectionString(string id = "Defualt")
-    {
-        return ConfigurationManager.ConnectionStrings[id].ConnectionString;
-    }
 }

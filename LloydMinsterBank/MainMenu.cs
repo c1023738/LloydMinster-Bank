@@ -27,5 +27,9 @@ namespace LloydMinsterBank
 
         }
 
+        private void listViewAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

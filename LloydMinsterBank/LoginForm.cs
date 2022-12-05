@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,12 +27,8 @@ namespace LloydMinsterBank
         Login userLogin = new Login();
         List<Account> userAccount = new List<Account>();
 
-        // 
 
-        public void LoadCustomer(int customerID, int customerPin)
-        {
-            userAccount = SqliteDataAccess.LoadCustomer(customerID, customerPin);
-        }
+
 
         private void btnPinNum1_Click(object sender, EventArgs e)
         {
@@ -92,7 +91,33 @@ namespace LloydMinsterBank
         {
             int formatedPin = Convert.ToInt32(userEnteredPin);
             int customerID = int.Parse(txtCustomerIDInput.Text);
-            LoadCustomer(customerID,formatedPin);
+            SqliteDataAccess dbOb = new SqliteDataAccess();
+            // SELECT FROM DATABASE
+            string query = "SELECT * FROM Customer";
+            SQLiteCommand myCommand = new SQLiteCommand(query, dbOb.myConnection);
+            dbOb.OpenConnection();
+
+            SQLiteDataReader result = myCommand.ExecuteReader();
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    string temp = result["CustomerID"].ToString();
+                    int CID = int.Parse(temp);
+                    temp = result["AccountBalance"].ToString();
+                    double AccountBalance = double.Parse(temp);
+                    temp = result["OverdraftLimit"].ToString();
+                    double Overdraft = double.Parse(temp);
+                    temp = result["Pin"].ToString();
+                    int pin = int.Parse(temp);
+
+                   // userAccount.Add(CID, result["FirstName"].ToString(), result["LastName"].ToString(), AccountBalance, Overdraft, pin);
+
+                }
+            }
+
+            dbOb.CloseConnection();
+            //LoadCustomer(customerID,formatedPin);
             if (userLogin.VerifyPin(formatedPin) == true)
             {
                 this.Hide();
@@ -128,3 +153,4 @@ namespace LloydMinsterBank
         }
     }
 }
+
