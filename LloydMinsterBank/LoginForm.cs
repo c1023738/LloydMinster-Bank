@@ -26,7 +26,6 @@ namespace LloydMinsterBank
         protected string userEnteredPin;
         Login userLogin = new Login();
 
-        List<Account> userAccount = new Account();
 
 
 
@@ -89,45 +88,39 @@ namespace LloydMinsterBank
 
         private void btnEnterPin_Click(object sender, EventArgs e)
         {
-            int formatedPin = Convert.ToInt32(userEnteredPin);
-            int customerID = int.Parse(txtCustomerIDInput.Text);
-            SqliteDataAccess dbOb = new SqliteDataAccess();
-            // SELECT FROM DATABASE
-            string query = "SELECT * FROM Customer";
-            SQLiteCommand myCommand = new SQLiteCommand(query, dbOb.myConnection);
-            dbOb.OpenConnection();
-
-            SQLiteDataReader result = myCommand.ExecuteReader();
-            if (result.HasRows)
+            try
             {
-                while (result.Read())
+
+                int formatedPin = Convert.ToInt32(userEnteredPin);
+                
+                
+                Program program = new Program();
+              
+                program.LoadCustomers();
+                bool verify = program.Verify(formatedPin);
+                if (verify == true)
                 {
-                    string temp = result["CustomerID"].ToString();
-                    int userID = int.Parse(temp);
-                    temp = result["AccountBalance"].ToString();
-                    double AccountBalance = double.Parse(temp);
-                    temp = result["OverdraftLimit"].ToString();
-                    double Overdraft = double.Parse(temp);
-                    temp = result["Pin"].ToString();
-                    int pin = int.Parse(temp);
-                    
+                    MainMenu mm = new MainMenu();
 
-                  userAccount.Add(new Account(userID, result["FirstName"].ToString(), result["LastName"].ToString(), AccountBalance, Overdraft, pin));
-
+                    this.Hide();
+                    mm.Show();
                 }
-            }
+                else if (verify == false)
+                {
+                    lblPinText.Text ="Incorrect Pin";
+                }
+                
+                
+                
 
-            dbOb.CloseConnection();
-            //LoadCustomer(customerID,formatedPin);
-            if (userLogin.VerifyPin(formatedPin) == true)
-            {
-                this.Hide();
-                MainMenu mMenu = new MainMenu();
-                mMenu.Show();
+
+
+
+
             }
-            else
+            catch (Exception ex)
             {
-                lblPinText.Text = "Incorrect Pin";
+                MessageBox.Show("Please enter a pin");
             }
         }
 

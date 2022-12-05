@@ -40,7 +40,7 @@
             // btn_Withdraw
             // 
             this.btn_Withdraw.Location = new System.Drawing.Point(356, 436);
-            this.btn_Withdraw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Withdraw.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Withdraw.Name = "btn_Withdraw";
             this.btn_Withdraw.Size = new System.Drawing.Size(150, 44);
             this.btn_Withdraw.TabIndex = 4;
@@ -51,7 +51,7 @@
             // btn_Deposit
             // 
             this.btn_Deposit.Location = new System.Drawing.Point(651, 436);
-            this.btn_Deposit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Deposit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Deposit.Name = "btn_Deposit";
             this.btn_Deposit.Size = new System.Drawing.Size(150, 44);
             this.btn_Deposit.TabIndex = 5;
@@ -69,9 +69,9 @@
             this.listViewAccounts.GridLines = true;
             this.listViewAccounts.HideSelection = false;
             this.listViewAccounts.Location = new System.Drawing.Point(310, 76);
-            this.listViewAccounts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewAccounts.Margin = new System.Windows.Forms.Padding(2);
             this.listViewAccounts.Name = "listViewAccounts";
-            this.listViewAccounts.Size = new System.Drawing.Size(564, 319);
+            this.listViewAccounts.Size = new System.Drawing.Size(664, 319);
             this.listViewAccounts.TabIndex = 6;
             this.listViewAccounts.UseCompatibleStateImageBehavior = false;
             this.listViewAccounts.View = System.Windows.Forms.View.Details;
@@ -112,7 +112,7 @@
             this.Controls.Add(this.listViewAccounts);
             this.Controls.Add(this.btn_Deposit);
             this.Controls.Add(this.btn_Withdraw);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu";
             this.Text = "Form1";
             this.ResumeLayout(false);

@@ -3,22 +3,27 @@
     protected string firstName;
     protected string lastName;
     protected double overdraftLimit;
-    protected double balance;
+    protected double AccountBalance;
     protected int customerID;
     protected int pin;
     protected bool specialAccount;
     protected double salary;
+    protected string type;
 
 
-    public Account(int cID, string fn, string ln, double aB, double ol, int pin)
+    public Account(int customerID, string firstName, string lastName, double AccountBalance, double overdraft, int pin)
     {
-        customerID= cID;
-        firstName= fn;
-        lastName= ln;
-        balance = aB;
-        overdraftLimit= ol;
+        this.customerID= customerID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.AccountBalance = AccountBalance;
+        overdraftLimit= overdraft;
         this.pin = pin;
+   
     }
+
+    
+    
 
     public bool isSpecialAccount(int spA)
     {
@@ -33,6 +38,10 @@
         return specialAccount;
         
     }
+    public int getPin()
+    {
+        return pin;
+    }
 
     public int getCustomerID()
     {
@@ -41,7 +50,7 @@
     
     public double getBalance()
     {
-        return balance;
+        return AccountBalance;
     }
 
     public double getOverdraftLimit()

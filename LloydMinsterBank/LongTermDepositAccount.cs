@@ -1,6 +1,6 @@
-﻿class LongTermDepositAccount
+﻿class LongTermDepositAccount : Account
 {
-    public LongTermDepositAccount(int currentBalance, int amount, string operation) // Sets Transaction Class
+    public LongTermDepositAccount(int cID, string fn, string ln, double aB, double ol, int pin) : base(cID, fn, ln, aB, ol, pin)
     {
 
     }
