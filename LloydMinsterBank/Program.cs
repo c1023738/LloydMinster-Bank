@@ -20,8 +20,8 @@ namespace LloydMinsterBank
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
         }
-            List<Account> userAccount = new List<Account>();
-            List<Account> chosenAccount= new List<Account>();
+        List<Account> userAccount = new List<Account>();
+        List<Account> chosenAccount = new List<Account>();
         public void LoadCustomers()
         {
             SqliteDataAccess dbOb = new SqliteDataAccess();
@@ -66,40 +66,42 @@ namespace LloydMinsterBank
         public bool Verify(int pin)
         {
             bool result = false;
-            
+
             foreach (var account in userAccount)
             {
                 if (account.getPin() == pin)
-                {                  
+                {
                     chosenAccount.Add(account);
                     result = true;
-                }              
+                }
             }
-            
+
             return result;
         }
 
         public void LoadCustomerList()
         {
 
-            
-           
+
+
 
             foreach (var accounts in chosenAccount)
-            { 
+            {
                 string[] row =
                 {
-                    accounts.getBalance().ToString()
+                    accounts.getBalance().ToString();
                 }
             }
-
-            for (int i = 0; i != rowsNumber; i++)
-            {
-                string[] row = { chosenAccount., inventory.quantity[i], inventory.desc[i] };
-                var listitem = new ListViewItem(row);
-                listViewAccounts.Items.Add(listitem);
-            }
         }
-       
-    }
+    } 
 }
+
+        //       for (int i = 0; i != rowsNumber; i++)
+        //       {
+        //           string[] row = { chosenAccount., inventory.quantity[i], inventory.desc[i] };
+        //           var listitem = new ListViewItem(row);
+        //           listViewAccounts.Items.Add(listitem);
+        //       }
+        //   
+        //  
+        //
