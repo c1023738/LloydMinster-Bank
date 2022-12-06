@@ -22,6 +22,7 @@ namespace LloydMinsterBank
         }
         List<Account> userAccount = new List<Account>();
         List<Account> chosenAccount = new List<Account>();
+        MainForm mainForm = new MainForm();
         public void LoadCustomers()
         {
             SqliteDataAccess dbOb = new SqliteDataAccess();
@@ -84,24 +85,122 @@ namespace LloydMinsterBank
             return CurrentForm;
         }
 
-        public void sideButtons()
-        {
-            if (CurrentForm == "MenuForm")
-            {
 
+
+
+        public void sideButtons(string buttonPressed)
+        {
+            /*if (CurrentForm == "MenuForm")
+            {
+                if (buttonPressed == "1" || buttonPressed == "2")
+                {
+                    // Go To Withdraw
+                    CurrentForm = "WithdrawForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "3" || buttonPressed == "4")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountPage";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "5" || buttonPressed == "6")
+                {
+                    // Go To Deposit
+                    CurrentForm = "DepositForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "7" || buttonPressed == "8")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
             }
             else if (CurrentForm == "WithdrawForm")
             {
 
+                if (buttonPressed == "1" || buttonPressed == "2")
+                {
+                    // Go To Withdraw
+                    CurrentForm = "WithdrawForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "3" || buttonPressed == "4")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountPage";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "5" || buttonPressed == "6")
+                {
+                    // Go To Deposit
+                    CurrentForm = "DepositForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "7" || buttonPressed == "8")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
             }
             else if (CurrentForm == "DepositForm")
             {
 
+                if (buttonPressed == "1" || buttonPressed == "2")
+                {
+                    // Go To Withdraw
+                    CurrentForm = "WithdrawForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "3" || buttonPressed == "4")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountPage";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "5" || buttonPressed == "6")
+                {
+                    // Go To Deposit
+                    CurrentForm = "DepositForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "7" || buttonPressed == "8")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
             }
             else if (CurrentForm == "AccountForm")
             {
 
-            }
+                if (buttonPressed == "1" || buttonPressed == "2")
+                {
+                    // Go To Withdraw
+                    CurrentForm = "WithdrawForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "3" || buttonPressed == "4")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountPage";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "5" || buttonPressed == "6")
+                {
+                    // Go To Deposit
+                    CurrentForm = "DepositForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+                if (buttonPressed == "7" || buttonPressed == "8")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountForm";
+                    mainForm.updateSubForm(CurrentForm);
+                }
+            }*/
         }
 
 

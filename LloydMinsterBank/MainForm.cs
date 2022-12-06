@@ -29,10 +29,51 @@ namespace LloydMinsterBank
         // Variables
 
         protected string userEnteredPin;
-        AccountPage accountPage = new AccountPage();
+        AccountForm accountPage = new AccountForm ();
         Program program = new Program();
-        MenuForm menuForm= new MenuForm();
+        MenuForm menuForm = new MenuForm();
         LoginForm loginForm = new LoginForm();
+
+
+        public void updateSubForm(string form)
+        {
+            if (form == "MenuForm")
+            {
+                MenuForm menuForm = new MenuForm();
+                program.setCurrentForm("MenuForm");
+                menuForm.TopLevel = false;
+                pnlMiddle.Controls.Add(menuForm);
+                menuForm.BringToFront();
+                menuForm.Show();
+            }
+            else if (form == "WithdrawForm")
+            {
+                WithdrawForm withdrawForm = new WithdrawForm();
+                program.setCurrentForm("WithdrawForm");
+                withdrawForm.TopLevel = false;
+                pnlMiddle.Controls.Add(withdrawForm);
+                withdrawForm.BringToFront();
+                withdrawForm.Show();
+            }
+            else if (form == "DepositForm")
+            {
+                DepositForm depositForm = new DepositForm();
+                program.setCurrentForm("DepositForm");
+                depositForm.TopLevel = false;
+                pnlMiddle.Controls.Add(depositForm);
+                depositForm.BringToFront();
+                depositForm.Show();
+            }
+            else if (form == "AccountForm")
+            {
+                AccountForm accountForm = new AccountForm();
+                program.setCurrentForm("AccountForm");
+                accountForm.TopLevel = false;
+                pnlMiddle.Controls.Add(accountForm);
+                accountForm.BringToFront();
+                accountForm.Show();
+            }
+        }
 
         // NUM PAD
         private void btnPinNum0_Click(object sender, EventArgs e)
@@ -149,12 +190,14 @@ namespace LloydMinsterBank
         }
 
 
+
+
         private void btnEnterPin_Click(object sender, EventArgs e)
         {
             try
             {
 
-                int formatedPin = Convert.ToInt32(userEnteredPin);         
+                int formatedPin = Convert.ToInt32(userEnteredPin);
                 Program program = new Program();
                 string currentForm = program.getCurrentForm();
 
@@ -162,22 +205,18 @@ namespace LloydMinsterBank
                 {
                     program.LoadCustomers();
                     bool verify = program.Verify(formatedPin);
-                    if (verify == true)                    {
-                        MenuForm menuForm = new MenuForm();
-                        program.setCurrentForm("MenuForm");
-                        menuForm.TopLevel = false;
-                        pnlMiddle.Controls.Add(menuForm);
-                        menuForm.BringToFront();
-                        menuForm.Show();
+                    if (verify == true)
+                    {
+
                     }
                     else if (verify == false)
                     {
 
                     }
                 }
-              
-                
-                           
+
+
+
             }
             catch (Exception ex)
             {
@@ -193,47 +232,47 @@ namespace LloydMinsterBank
 
         private void btnP1_Click(object sender, EventArgs e)
         {
-
+           /* program.sideButtons("1");*/
         }
 
         private void btnP2_Click(object sender, EventArgs e)
         {
-
+            /*program.sideButtons("2");*/
         }
 
         private void btnP3_Click(object sender, EventArgs e)
         {
-
+           /* program.sideButtons("3");*/
         }
 
         private void btnP4_Click(object sender, EventArgs e)
         {
-
+          /*  program.sideButtons("4");*/
         }
 
         private void btnP5_Click(object sender, EventArgs e)
         {
-
+           /* program.sideButtons("5");*/
         }
 
         private void btnP6_Click(object sender, EventArgs e)
         {
-
+           /* program.sideButtons("6");*/
         }
 
         private void btnP7_Click(object sender, EventArgs e)
         {
-
+           /* program.sideButtons("7");*/
         }
 
         private void btnP8_Click(object sender, EventArgs e)
         {
-
+            /*program.sideButtons("8");*/
         }
 
         private void panel8_Paint(object sender, PaintEventArgs e)
         {
-
+            /*program.sideButtons("9");*/
         }
     }
 }
