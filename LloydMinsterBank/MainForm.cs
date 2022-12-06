@@ -8,6 +8,7 @@ using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,7 +30,7 @@ namespace LloydMinsterBank
         // Variables
 
         protected string userEnteredPin;
-        AccountForm accountPage = new AccountForm ();
+        //AccountForm accountPage = new AccountForm ();
         Program program = new Program();
         MenuForm menuForm = new MenuForm();
         LoginForm loginForm = new LoginForm();
@@ -177,10 +178,14 @@ namespace LloydMinsterBank
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            
             loginForm.TopLevel = false;
             pnlMiddle.Controls.Add(loginForm);
             loginForm.BringToFront();
             loginForm.Show();
+            userEnteredPin = "";
+            program.setCurrentForm("LoginForm");
+            loginForm.ClearPinText();
         }
 
         private void btnClearPin_Click(object sender, EventArgs e)
@@ -207,11 +212,13 @@ namespace LloydMinsterBank
                     bool verify = program.Verify(formatedPin);
                     if (verify == true)
                     {
-
+                        program.setCurrentForm("MenuForm");
+                        updateSubForm(program.getCurrentForm());
                     }
                     else if (verify == false)
                     {
-
+                        loginForm.UpdatePinText("Invalid Input");
+                        userEnteredPin = "";
                     }
                 }
 
@@ -229,51 +236,49 @@ namespace LloydMinsterBank
 
 
 
+        
 
         private void btnP1_Click(object sender, EventArgs e)
         {
-           /* program.sideButtons("1");*/
+            updateSubForm(program.sideButtons("1"));
         }
 
         private void btnP2_Click(object sender, EventArgs e)
         {
-            /*program.sideButtons("2");*/
+            updateSubForm(program.sideButtons("2"));
         }
 
         private void btnP3_Click(object sender, EventArgs e)
         {
-           /* program.sideButtons("3");*/
+            updateSubForm(program.sideButtons("3"));
         }
 
         private void btnP4_Click(object sender, EventArgs e)
         {
-          /*  program.sideButtons("4");*/
+            updateSubForm(program.sideButtons("4"));
         }
+
 
         private void btnP5_Click(object sender, EventArgs e)
         {
-           /* program.sideButtons("5");*/
+            updateSubForm(program.sideButtons("5"));
         }
 
         private void btnP6_Click(object sender, EventArgs e)
         {
-           /* program.sideButtons("6");*/
+            updateSubForm(program.sideButtons("6"));
         }
 
         private void btnP7_Click(object sender, EventArgs e)
         {
-           /* program.sideButtons("7");*/
+            updateSubForm(program.sideButtons("7"));
         }
 
         private void btnP8_Click(object sender, EventArgs e)
         {
-            /*program.sideButtons("8");*/
+            updateSubForm(program.sideButtons("8"));
         }
 
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-            /*program.sideButtons("9");*/
-        }
     }
 }
 

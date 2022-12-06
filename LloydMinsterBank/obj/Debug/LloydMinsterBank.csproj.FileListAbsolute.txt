@@ -35,4 +35,3 @@ D:\Documents\C#\A\LloydMinsterBank\obj\Debug\LloydMinsterBank.MainForm.resources
 D:\Documents\C#\A\LloydMinsterBank\obj\Debug\LloydMinsterBank.AccountPage.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.MainForm.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.MenuForm.resources
-D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.AccountForm.resources

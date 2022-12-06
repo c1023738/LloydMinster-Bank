@@ -97,9 +97,6 @@
     <Compile Include="WithdrawForm.Designer.cs">
       <DependentUpon>WithdrawForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccountForm.resx">
-      <DependentUpon>AccountForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

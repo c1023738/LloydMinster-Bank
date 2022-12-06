@@ -20,9 +20,10 @@ namespace LloydMinsterBank
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+        
         List<Account> userAccount = new List<Account>();
         List<Account> chosenAccount = new List<Account>();
-        MainForm mainForm = new MainForm();
+        
         public void LoadCustomers()
         {
             SqliteDataAccess dbOb = new SqliteDataAccess();
@@ -86,35 +87,37 @@ namespace LloydMinsterBank
         }
 
 
+        
 
-
-        public void sideButtons(string buttonPressed)
+        public string sideButtons(string buttonPressed)
         {
-            /*if (CurrentForm == "MenuForm")
+            
+            if (CurrentForm == "MenuForm")
             {
-                if (buttonPressed == "1" || buttonPressed == "2")
+               if (buttonPressed == "1" || buttonPressed == "2")
                 {
                     // Go To Withdraw
                     CurrentForm = "WithdrawForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
+                    
                 }
-                if (buttonPressed == "3" || buttonPressed == "4")
-                {
-                    // Go To AccountPage
-                    CurrentForm = "AccountPage";
-                    mainForm.updateSubForm(CurrentForm);
-                }
-                if (buttonPressed == "5" || buttonPressed == "6")
-                {
-                    // Go To Deposit
-                    CurrentForm = "DepositForm";
-                    mainForm.updateSubForm(CurrentForm);
-                }
-                if (buttonPressed == "7" || buttonPressed == "8")
+                else if (buttonPressed == "3" || buttonPressed == "4")
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "5" || buttonPressed == "6")
+                {
+                    // Go To Deposit
+                    CurrentForm = "DepositForm";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "7" || buttonPressed == "8")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountForm";
+                    return CurrentForm;
                 }
             }
             else if (CurrentForm == "WithdrawForm")
@@ -124,25 +127,25 @@ namespace LloydMinsterBank
                 {
                     // Go To Withdraw
                     CurrentForm = "WithdrawForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "3" || buttonPressed == "4")
+                else if (buttonPressed == "3" || buttonPressed == "4")
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountPage";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "5" || buttonPressed == "6")
+                else if (buttonPressed == "5" || buttonPressed == "6")
                 {
                     // Go To Deposit
                     CurrentForm = "DepositForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "7" || buttonPressed == "8")
+                else if (buttonPressed == "7" || buttonPressed == "8")
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
             }
             else if (CurrentForm == "DepositForm")
@@ -152,25 +155,25 @@ namespace LloydMinsterBank
                 {
                     // Go To Withdraw
                     CurrentForm = "WithdrawForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "3" || buttonPressed == "4")
+                else if (buttonPressed == "3" || buttonPressed == "4")
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountPage";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "5" || buttonPressed == "6")
+                else if (buttonPressed == "5" || buttonPressed == "6")
                 {
                     // Go To Deposit
                     CurrentForm = "DepositForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "7" || buttonPressed == "8")
+                else if (buttonPressed == "7" || buttonPressed == "8")
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
             }
             else if (CurrentForm == "AccountForm")
@@ -180,27 +183,28 @@ namespace LloydMinsterBank
                 {
                     // Go To Withdraw
                     CurrentForm = "WithdrawForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "3" || buttonPressed == "4")
+                else if (buttonPressed == "3" || buttonPressed == "4")
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountPage";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "5" || buttonPressed == "6")
+                else if(buttonPressed == "5" || buttonPressed == "6")
                 {
                     // Go To Deposit
                     CurrentForm = "DepositForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-                if (buttonPressed == "7" || buttonPressed == "8")
+                else if (buttonPressed == "7" || buttonPressed == "8")
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountForm";
-                    mainForm.updateSubForm(CurrentForm);
+                    return CurrentForm;
                 }
-            }*/
+            }
+            return CurrentForm;
         }
 
 
