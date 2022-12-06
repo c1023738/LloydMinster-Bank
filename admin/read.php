@@ -5,7 +5,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     require_once "config.php";
     
     
-    $sql = "SELECT * FROM employees WHERE id = ?";
+    $sql = "SELECT * FROM customers WHERE id = ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -21,9 +21,15 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 
              
-                $name = $row["name"];
+                $firstname = $row["firstname"];
+                $lastname = $row["lastname"];
+                $email = $row["email"];
+                $currentaccountbalance = $row["currentaccountbalance"];
+                $simplebalance = $row["simplebalance"];
+                $longtermbalance = $row["longtermbalance"];
                 $address = $row["address"];
                 $salary = $row["salary"];
+                $age = $row["age"];
             } else{
               
                 header("location: error.php");
@@ -32,11 +38,12 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
             
         } else{
             echo "Oops! Something went wrong. Please try again later.";
-        }
+        } 
+        mysqli_stmt_close($stmt);
     }
      
   
-    mysqli_stmt_close($stmt);
+    
     
  
     mysqli_close($link);
@@ -79,8 +86,16 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <p><b><?php echo $row["email"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Account Balance</label>
-                        <p><b><?php echo $row["accountbalance"]; ?></b></p>
+                        <label> Current Account Balance</label>
+                        <p><b><?php echo $row["currentaccountbalance"]; ?></b></p>
+                    </div>
+                    <div class="form-group">
+                        <label> Simple Account Balance</label>
+                        <p><b><?php echo $row["simplebalance"]; ?></b></p>
+                    </div>
+                    <div class="form-group">
+                        <label> Long Term Account Balance</label>
+                        <p><b><?php echo $row["longtermbalance"]; ?></b></p>
                     </div>
                     <div class="form-group">
                         <label>Salary</label>

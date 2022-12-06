@@ -5,7 +5,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     require_once "config.php";
     
     // Prepare a delete statement
-    $sql = "DELETE FROM employees WHERE id = ?";
+    $sql = "DELETE FROM customers WHERE id = ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -21,11 +21,12 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
-        }
+        } 
+        mysqli_stmt_close($stmt);
     }
      
     // Close statement
-    mysqli_stmt_close($stmt);
+    
     
     // Close connection
     mysqli_close($link);
@@ -61,7 +62,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger">
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
-                            <p>Are you sure you want to delete this employee record?</p>
+                            <p>Are you sure you want to delete this customer record?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
                                 <a href="index.php" class="btn btn-secondary">No</a>

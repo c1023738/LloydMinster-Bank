@@ -1,14 +1,14 @@
 <?php
-// Include config file
+
 require_once "config.php";
  
-// Define variables and initialize with empty values
-$firstname = $lastname = $email = $accountbalance = $address = $salary = $age = "";
-$firstname_err = $lastname_err = $email_err = $accountbalance = $address_err = $salary_err = $age_err = "";
+
+$firstname = $lastname = $email = $currentaccountbalance = $simplebalance = $longtermbalance = $address = $salary = $age = "";
+$firstname_err = $lastname_err = $email_err = $currentaccountbalance_err = $simplebalance_err = $longtermbalance_err = $address_err = $salary_err = $age_err = "";
  
-// Processing form data when form is submitted
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Validate name
+ 
     $input_firstname = trim($_POST["firstname"]);
     if(empty($input_firstname)){
         $firstname_err = "Please enter a first name.";
@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     
-        // Validate name
+       
         $input_lastname = trim($_POST["lastname"]);
         if(empty($input_lastname)){
             $lastname_err = "Please enter a last name.";
@@ -36,15 +36,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $email = $input_email;
         }
 
-        $input_accountbalance = trim($_POST["accountbalance"]);
-    if(empty($input_accountbalance)){
-        $accountbalance_err = "Please enter the account balance.";     
-    } elseif(!ctype_digit($input_accountbalance)){
-        $accountbalance_err = "Please enter a positive integer value.";
+        $input_currentaccountbalance = trim($_POST["currentaccountbalance"]);
+    if(empty($input_currentaccountbalance)){
+        $currentaccountbalance_err = "Please enter the Current Account Balance.";     
+    } elseif(!ctype_digit($input_currentaccountbalance)){
+        $currenaccountbalance_err = "Please enter a positive integer value.";
     } else{
-        $accountbalance = $input_accountbalance;
+        $currentaccountbalance = $input_currentaccountbalance;
     }
-    // Validate address
+
+    $input_simplebalance = trim($_POST["simplebalance"]);
+    if(empty($input_simplebalance)){
+        $simplebalance_err = "Please enter the Simple Account Balance.";     
+    } elseif(!ctype_digit($input_simplebalance)){
+        $simplebalance_err = "Please enter a positive integer value.";
+    } else{
+        $simplebalance = $input_simplebalance;
+    }
+
+    $input_longtermbalance = trim($_POST["longtermbalance"]);
+    if(empty($input_longtermbalance)){
+        $longtermbalance_err = "Please enter the Long-Term Account Balance.";     
+    } elseif(!ctype_digit($input_longtermbalance)){
+        $longtermbalance_err = "Please enter a positive integer value.";
+    } else{
+        $longtermbalance = $input_longtermbalance;
+    }
+
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
         $address_err = "Please enter an address.";     
@@ -52,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $address = $input_address;
     }
     
-    // Validate salary
+   
     $input_salary = trim($_POST["salary"]);
     if(empty($input_salary)){
         $salary_err = "Please enter the salary amount.";     
@@ -70,39 +88,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $age = $input_age;
     }
-    // Check input errors before inserting in database
-    if(empty($firstname_err) && empty($lastname_err) && empty($accountbalance_err) && empty($address_err) && empty($salary_err) && empty($age_err)){
-        // Prepare an insert statement
-        $sql = "INSERT INTO employees (firstname, lastname, email, accountbalance, salary, age, address) VALUES (?, ?, ?, ?, ?, ?, ?)";
-         
+    
+    if(empty($firstname_err) && empty($lastname_err) && empty($currentaccountbalance_err) && empty($simplebalance_err) && empty($longtermbalance_err) && empty($address_err) && empty($salary_err) && empty($age_err)){
+       
+        $sql = "INSERT INTO customers (firstname, lastname, email, currentaccountbalance, simplebalance, longtermbalance, salary, age, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssa", $param_firstname, $param_lastname, $param_email, $param_accountbalance, $param_address, $param_salary, $param_age);
+           
+            mysqli_stmt_bind_param($stmt, "sssssssss", $param_firstname, $param_lastname, $param_email, $param_currentaccountbalance, $param_simplebalance, $param_longtermbalance, $param_salary, $param_age, $param_address );
             
-            // Set parameters
+          
             $param_firstname = $firstname;
             $param_lastname = $lastname;
             $param_email = $email;
-            $param_accountbalance = $accountbalance;
-            $param_address = $address;
+            $param_currentaccountbalance = $currentaccountbalance;
+            $param_simplebalance = $simplebalance;
+            $param_longtermbalance = $longtermbalance;
             $param_salary = $salary;
             $param_age = $age;
+            $param_address = $address;
+           
             
-            // Attempt to execute the prepared statement
+           
             if(mysqli_stmt_execute($stmt)){
-                // Records created successfully. Redirect to landing page
+               
                 header("location: index.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
+             mysqli_stmt_close($stmt);
         }
          
-        // Close statement
-        mysqli_stmt_close($stmt);
+      
+        
     }
     
-    // Close connection
+   
     mysqli_close($link);
 }
 ?>
@@ -126,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="mt-5">Create Record</h2>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <p>Please fill this form and submit to add customer record to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label> First Name</label>
@@ -144,9 +166,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <span class="invalid-feedback"><?php echo $email_err;?></span>
                         </div>
                         <div class="form-group">
-                            <label>Account Balance</label>
-                            <input type="text" name="accountbalance" class="form-control <?php echo (!empty($accountbalance_err)) ? 'is-invalid' : ''; ?>"value="<?php echo $accountbalance; ?>">
-                            <span class="invalid-feedback"><?php echo $accountbalance_err;?></span>
+                            <label>Current Account Balance</label>
+                            <input type="text" name="currentaccountbalance" class="form-control <?php echo (!empty($currentaccountbalance_err)) ? 'is-invalid' : ''; ?>"value="<?php echo $currentaccountbalance; ?>">
+                            <span class="invalid-feedback"><?php echo $currentaccountbalance_err;?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Simple Account Balance</label>
+                            <input type="text" name="simplebalance" class="form-control <?php echo (!empty($simplebalance_err)) ? 'is-invalid' : ''; ?>"value="<?php echo $simplebalance; ?>">
+                            <span class="invalid-feedback"><?php echo $simplebalance_err;?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Long-Term Account Balance</label>
+                            <input type="text" name="longtermbalance" class="form-control <?php echo (!empty($longtermbalance_err)) ? 'is-invalid' : ''; ?>"value="<?php echo $longtermbalance; ?>">
+                            <span class="invalid-feedback"><?php echo $longtermbalance_err;?></span>
                         </div>
                         <div class="form-group">
                             <label>Salary</label>

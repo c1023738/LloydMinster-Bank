@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admin</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         .wrapper{
-            width: 600px;
+            width: 1000px;
             margin: 0 auto;
         }
         table tr td:last-child{
@@ -29,8 +30,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="mt-5 mb-3 clearfix">
-                        <h2 class="pull-left">Employees Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a>
+                        <h2 class="pull-left">Customer Details</h2>
+                        <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Customer</a>
                     </div>
                     <?php
                     // Include config file
@@ -43,11 +44,13 @@
                             echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>#</th>";
+                                        echo "<th>Customer ID</th>";
                                         echo "<th>First Name</th>";
                                         echo "<th>Last Name</th>";
                                         echo "<th>Email</th>";
-                                        echo "<th>Account Balance</th>";
+                                        echo "<th>Current Account Balance</th>";
+                                        echo "<th>Simple Account Balance</th>";
+                                        echo "<th>Long-Term Account Balance</th>";
                                         echo "<th>Salary</th>";
                                         echo "<th>Age</th>";
                                         echo "<th>Address</th>";
@@ -61,7 +64,9 @@
                                         echo "<td>" . $row['firstname'] . "</td>";
                                         echo "<td>" . $row['lastname'] . "</td>";
                                         echo "<td>" . $row['email'] . "</td>";
-                                        echo "<td>" . $row['accountbalance'] . "</td>";
+                                        echo "<td>" . $row['currentaccountbalance'] . "</td>";
+                                        echo "<td>" . $row['simplebalance'] . "</td>";
+                                        echo "<td>" . $row['longtermbalance'] . "</td>";
                                         echo "<td>" . $row['salary'] . "</td>";
                                         echo "<td>" . $row['age'] . "</td>";
                                         echo "<td>" . $row['address'] . "</td>";

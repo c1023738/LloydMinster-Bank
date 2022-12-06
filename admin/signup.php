@@ -53,16 +53,18 @@ session_start();
 		padding: 10px;
 		width: 100px;
 		color: white;
-		background-color: lightblue;
+		background-color: crimson;
 		border: none;
 	}
 
 	#box{
 
-		background-color: grey;
+		background-color: aqua;
 		margin: auto;
 		width: 300px;
 		padding: 20px;
+		position: relative;
+		top: 250px;
 	}
 
 	</style>
@@ -70,9 +72,10 @@ session_start();
 	<div id="box">
 		
 		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
-
+			<div style="font-size: 30px;position:relative;bottom: 12px;left: 100px;margin: 10px;color: crimson;">Signup</div>
+			<label style= "color: crimson;">Username</label>
 			<input id="text" type="text" name="user_name"><br><br>
+			<label style= "color: crimson;">Password</label>
 			<input id="text" type="password" name="password"><br><br>
 
 			<input id="button" type="submit" value="Signup"><br><br>
