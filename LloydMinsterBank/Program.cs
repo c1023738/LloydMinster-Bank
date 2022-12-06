@@ -18,7 +18,7 @@ namespace LloydMinsterBank
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new MainForm());
         }
         List<Account> userAccount = new List<Account>();
         List<Account> chosenAccount = new List<Account>();
@@ -78,7 +78,7 @@ namespace LloydMinsterBank
 
             return result;
         }
-
+/*
         public void LoadCustomerList()
         {
 
@@ -92,7 +92,7 @@ namespace LloydMinsterBank
                     accounts.getBalance().ToString();
                 }
             }
-        }
+        }*/
     } 
 }
 

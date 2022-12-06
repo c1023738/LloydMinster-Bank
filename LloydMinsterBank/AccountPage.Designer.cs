@@ -1,6 +1,6 @@
 ﻿namespace LloydMinsterBank
 {
-    partial class MainMenu
+    partial class AccountPage
     {
         /// <summary>
         /// Required designer variable.
