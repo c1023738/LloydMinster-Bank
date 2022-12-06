@@ -16,5 +16,21 @@ namespace LloydMinsterBank
         {
             InitializeComponent();
         }
+
+        string pinText;
+
+        public void UpdatePinText(string enteredNumber)
+        {            
+            lblPinTxt.Text = enteredNumber;
+        }
+
+        public void ClearPinText()
+        {
+            lblPinTxt.Text = "****";
+        }
+
+
+
+
     }
 }

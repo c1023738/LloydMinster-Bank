@@ -9,7 +9,6 @@ D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.csproj.Ge
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.csproj.CoreCompileInputs.cache
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.exe
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.pdb
-D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.MainMenu.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\bin\Debug\UserDatabase.db
 D:\Documents\C#\Assignment\LloydMinsterBank\bin\Debug\Dapper.dll
 D:\Documents\C#\Assignment\LloydMinsterBank\bin\Debug\System.Data.SQLite.dll
@@ -34,3 +33,6 @@ D:\Documents\C#\A\LloydMinsterBank\bin\Debug\System.Data.SQLite.xml
 D:\Documents\C#\A\LloydMinsterBank\obj\Debug\LloydMinsterBank.csproj.CopyComplete
 D:\Documents\C#\A\LloydMinsterBank\obj\Debug\LloydMinsterBank.MainForm.resources
 D:\Documents\C#\A\LloydMinsterBank\obj\Debug\LloydMinsterBank.AccountPage.resources
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.MainForm.resources
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.AccountPage.resources
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.MenuForm.resources

@@ -18,140 +18,220 @@ namespace LloydMinsterBank
         public MainForm()
         {
             InitializeComponent();
-            LoginForm lg = new LoginForm();
-            lg.TopLevel= false;
-            pnlMiddle.Controls.Add(lg);
-            lg.BringToFront();
-            lg.Show();
+            loginForm.TopLevel = false;
+            pnlMiddle.Controls.Add(loginForm);
+            loginForm.BringToFront();
+            loginForm.Show();
+
         }
 
 
         // Variables
 
         protected string userEnteredPin;
-        Login userLogin = new Login();
+        AccountPage accountPage = new AccountPage();
+        Program program = new Program();
+        MenuForm menuForm= new MenuForm();
+        LoginForm loginForm = new LoginForm();
 
-
-
+        // NUM PAD
+        private void btnPinNum0_Click(object sender, EventArgs e)
+        {
+            userEnteredPin = userEnteredPin + "0";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "login")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
+        }
 
         private void btnPinNum1_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "1";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnPinNum2_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "2";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnPinNum3_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "3";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnPinNum4_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "4";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnPinNum5_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "5";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnPinNum6_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "6";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnPinNum7_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "7";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
         private void btnPinNum8_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "8";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnPinNum9_Click(object sender, EventArgs e)
         {
             userEnteredPin = userEnteredPin + "9";
+            string currentForm = program.getCurrentForm();
+            if (currentForm == "LoginForm")
+            {
+                loginForm.UpdatePinText(userEnteredPin);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            loginForm.TopLevel = false;
+            pnlMiddle.Controls.Add(loginForm);
+            loginForm.BringToFront();
+            loginForm.Show();
         }
 
         private void btnClearPin_Click(object sender, EventArgs e)
         {
-            foreach (int number in userEnteredPin)
-            {
-                userEnteredPin.Remove(number);
-            }
+            userEnteredPin = "";
+            loginForm.ClearPinText();
         }
+
 
         private void btnEnterPin_Click(object sender, EventArgs e)
         {
             try
             {
 
-                int formatedPin = Convert.ToInt32(userEnteredPin);
-                
-                
+                int formatedPin = Convert.ToInt32(userEnteredPin);         
                 Program program = new Program();
+                string currentForm = program.getCurrentForm();
+
+                if (currentForm == "LoginForm")
+                {
+                    program.LoadCustomers();
+                    bool verify = program.Verify(formatedPin);
+                    if (verify == true)                    {
+                        MenuForm menuForm = new MenuForm();
+                        program.setCurrentForm("MenuForm");
+                        menuForm.TopLevel = false;
+                        pnlMiddle.Controls.Add(menuForm);
+                        menuForm.BringToFront();
+                        menuForm.Show();
+                    }
+                    else if (verify == false)
+                    {
+
+                    }
+                }
               
-                program.LoadCustomers();
-                bool verify = program.Verify(formatedPin);
-                if (verify == true)
-                {
-                    AccountPage mm = new AccountPage();
-
-                    this.Hide();
-                    mm.Show();
-                }
-                else if (verify == false)
-                {
-                    lblPinText.Text ="Incorrect Pin";
-                }
                 
-                
-                
-
-
-
-
-
+                           
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please enter a pin");
+                //Sends String to Pin label to set it to Invalid
+
             }
         }
 
-        // These Buttons dont do anything just there to make it look good and not leave Random Space 
+        // SIDE BUTTONS
 
-        private void btnEmpty1_Click(object sender, EventArgs e)
+
+
+
+        private void btnP1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEmpty2_Click(object sender, EventArgs e)
+        private void btnP2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEmpty3_Click(object sender, EventArgs e)
+        private void btnP3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btnP4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnPinNum0_Click(object sender, EventArgs e)
+        private void btnP5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnP6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnP7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnP8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
         {
 
         }

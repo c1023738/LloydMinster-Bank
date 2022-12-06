@@ -37,27 +37,18 @@ namespace LloydMinsterBank
                 while (result.Read())
                 {
                     string temp = result["CustomerID"].ToString();
-                    int userID = int.Parse(temp);
-                    temp = result["AccountBalance"].ToString();
-                    double AccountBalance = double.Parse(temp);
+                    int customerID = int.Parse(temp);
+                    temp = result["CurrentAccountBalance"].ToString();
+                    double CurrentAccount = double.Parse(temp);
+                    temp = result["SimpleAccountBalance"].ToString();
+                    double SimpleAccount = double.Parse(temp);
+                    temp = result["LongTermAccountBalance"].ToString();
+                    double LongTermAccount = double.Parse(temp);
                     temp = result["OverdraftLimit"].ToString();
                     double Overdraft = double.Parse(temp);
                     temp = result["Pin"].ToString();
                     int pin = int.Parse(temp);
-
-                    if (result["Type"].ToString() == "Current")
-                    {
-
-                        userAccount.Add(new CurrentAccount(userID, result["FirstName"].ToString(), result["LastName"].ToString(), AccountBalance, Overdraft, pin));
-                    }
-                    else if (result["Type"].ToString() == "Simple")
-                    {
-                        userAccount.Add(new SimpleDepositAccount(userID, result["FirstName"].ToString(), result["LastName"].ToString(), AccountBalance, Overdraft, pin));
-                    }
-                    else if (result["Type"].ToString() == "Longterm")
-                    {
-                        userAccount.Add(new LongTermDepositAccount(userID, result["FirstName"].ToString(), result["LastName"].ToString(), AccountBalance, Overdraft, pin));
-                    }
+                    userAccount.Add(new Account(customerID, result["FirstName"].ToString(), result["LastName"].ToString(), CurrentAccount,SimpleAccount,LongTermAccount, Overdraft, pin));
 
                 }
             }
@@ -78,30 +69,42 @@ namespace LloydMinsterBank
 
             return result;
         }
-/*
-        public void LoadCustomerList()
+
+       
+
+        string CurrentForm = "LoginForm";
+
+        public void setCurrentForm(string form)
         {
+            CurrentForm = form;
+        }
 
+        public string getCurrentForm()
+        {
+            return CurrentForm;
+        }
 
-
-
-            foreach (var accounts in chosenAccount)
+        public void sideButtons()
+        {
+            if (CurrentForm == "MenuForm")
             {
-                string[] row =
-                {
-                    accounts.getBalance().ToString();
-                }
-            }
-        }*/
-    } 
-}
 
-        //       for (int i = 0; i != rowsNumber; i++)
-        //       {
-        //           string[] row = { chosenAccount., inventory.quantity[i], inventory.desc[i] };
-        //           var listitem = new ListViewItem(row);
-        //           listViewAccounts.Items.Add(listitem);
-        //       }
-        //   
-        //  
-        //
+            }
+            else if (CurrentForm == "WithdrawForm")
+            {
+
+            }
+            else if (CurrentForm == "DepositForm")
+            {
+
+            }
+            else if (CurrentForm == "AccountForm")
+            {
+
+            }
+        }
+
+
+
+    }   
+}

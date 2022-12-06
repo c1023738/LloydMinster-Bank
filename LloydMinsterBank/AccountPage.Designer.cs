@@ -28,106 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Withdraw = new System.Windows.Forms.Button();
-            this.btn_Deposit = new System.Windows.Forms.Button();
-            this.listViewAccounts = new System.Windows.Forms.ListView();
-            this.Current_Account = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Simple_Deposit_Account = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Long_Term_Deposit_Account = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Lbl_Information = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btn_Withdraw
+            // label1
             // 
-            this.btn_Withdraw.Location = new System.Drawing.Point(356, 436);
-            this.btn_Withdraw.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_Withdraw.Name = "btn_Withdraw";
-            this.btn_Withdraw.Size = new System.Drawing.Size(150, 44);
-            this.btn_Withdraw.TabIndex = 4;
-            this.btn_Withdraw.Text = "Withdraw";
-            this.btn_Withdraw.UseVisualStyleBackColor = true;
-            this.btn_Withdraw.Click += new System.EventHandler(this.btn_Withdraw_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 35);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Account Holder: ";
             // 
-            // btn_Deposit
+            // label2
             // 
-            this.btn_Deposit.Location = new System.Drawing.Point(651, 436);
-            this.btn_Deposit.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_Deposit.Name = "btn_Deposit";
-            this.btn_Deposit.Size = new System.Drawing.Size(150, 44);
-            this.btn_Deposit.TabIndex = 5;
-            this.btn_Deposit.Text = "Deposit";
-            this.btn_Deposit.UseVisualStyleBackColor = true;
-            this.btn_Deposit.Click += new System.EventHandler(this.btn_Deposit_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft New Tai Lue", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(174, 28);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Current Account";
             // 
-            // listViewAccounts
+            // label3
             // 
-            this.listViewAccounts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Current_Account,
-            this.Simple_Deposit_Account,
-            this.Long_Term_Deposit_Account});
-            this.listViewAccounts.FullRowSelect = true;
-            this.listViewAccounts.GridLines = true;
-            this.listViewAccounts.HideSelection = false;
-            this.listViewAccounts.Location = new System.Drawing.Point(310, 76);
-            this.listViewAccounts.Margin = new System.Windows.Forms.Padding(2);
-            this.listViewAccounts.Name = "listViewAccounts";
-            this.listViewAccounts.Size = new System.Drawing.Size(664, 319);
-            this.listViewAccounts.TabIndex = 6;
-            this.listViewAccounts.UseCompatibleStateImageBehavior = false;
-            this.listViewAccounts.View = System.Windows.Forms.View.Details;
-            this.listViewAccounts.SelectedIndexChanged += new System.EventHandler(this.listViewAccounts_SelectedIndexChanged);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft New Tai Lue", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(39, 186);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(248, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Simple Deposit Account";
             // 
-            // Current_Account
+            // label4
             // 
-            this.Current_Account.Text = "Current Account";
-            this.Current_Account.Width = 250;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft New Tai Lue", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(39, 286);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(287, 28);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Long Term Deposit Account";
             // 
-            // Simple_Deposit_Account
-            // 
-            this.Simple_Deposit_Account.Text = "Simple Deposit Account";
-            this.Simple_Deposit_Account.Width = 250;
-            // 
-            // Long_Term_Deposit_Account
-            // 
-            this.Long_Term_Deposit_Account.Text = "Long Term Deposit Account";
-            this.Long_Term_Deposit_Account.Width = 250;
-            // 
-            // Lbl_Information
-            // 
-            this.Lbl_Information.AutoSize = true;
-            this.Lbl_Information.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Lbl_Information.Location = new System.Drawing.Point(98, 110);
-            this.Lbl_Information.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Lbl_Information.Name = "Lbl_Information";
-            this.Lbl_Information.Size = new System.Drawing.Size(125, 20);
-            this.Lbl_Information.TabIndex = 7;
-            this.Lbl_Information.Text = "Your Account\'s: ";
-            // 
-            // MainMenu
+            // AccountPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1003, 522);
-            this.Controls.Add(this.Lbl_Information);
-            this.Controls.Add(this.listViewAccounts);
-            this.Controls.Add(this.btn_Deposit);
-            this.Controls.Add(this.btn_Withdraw);
+            this.ClientSize = new System.Drawing.Size(875, 411);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "MainMenu";
+            this.Name = "AccountPage";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AccountPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_Withdraw;
-        private System.Windows.Forms.Button btn_Deposit;
-        private System.Windows.Forms.ListView listViewAccounts;
-        private System.Windows.Forms.Label Lbl_Information;
-        private System.Windows.Forms.ColumnHeader Current_Account;
-        private System.Windows.Forms.ColumnHeader Simple_Deposit_Account;
-        private System.Windows.Forms.ColumnHeader Long_Term_Deposit_Account;
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

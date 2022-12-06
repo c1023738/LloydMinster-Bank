@@ -32,5 +32,10 @@ namespace LloydMinsterBank
             
             
         }
+
+        private void AccountPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
