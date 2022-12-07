@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDepositForm = new System.Windows.Forms.Button();
             this.btnWithdrawForm = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAccountForm = new System.Windows.Forms.Button();
@@ -40,7 +39,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnDepositForm);
             this.panel1.Controls.Add(this.btnWithdrawForm);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -48,24 +46,13 @@
             this.panel1.Size = new System.Drawing.Size(880, 209);
             this.panel1.TabIndex = 0;
             // 
-            // btnDepositForm
-            // 
-            this.btnDepositForm.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnDepositForm.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDepositForm.Location = new System.Drawing.Point(440, 0);
-            this.btnDepositForm.Name = "btnDepositForm";
-            this.btnDepositForm.Size = new System.Drawing.Size(440, 209);
-            this.btnDepositForm.TabIndex = 1;
-            this.btnDepositForm.Text = "Deposit";
-            this.btnDepositForm.UseVisualStyleBackColor = false;
-            // 
             // btnWithdrawForm
             // 
             this.btnWithdrawForm.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnWithdrawForm.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnWithdrawForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnWithdrawForm.Location = new System.Drawing.Point(0, 0);
             this.btnWithdrawForm.Name = "btnWithdrawForm";
-            this.btnWithdrawForm.Size = new System.Drawing.Size(440, 209);
+            this.btnWithdrawForm.Size = new System.Drawing.Size(880, 209);
             this.btnWithdrawForm.TabIndex = 0;
             this.btnWithdrawForm.Text = "Withdraw";
             this.btnWithdrawForm.UseVisualStyleBackColor = false;
@@ -121,7 +108,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnDepositForm;
         private System.Windows.Forms.Button btnWithdrawForm;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAccountForm;

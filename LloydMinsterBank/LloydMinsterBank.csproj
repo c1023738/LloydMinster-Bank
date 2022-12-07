@@ -62,18 +62,6 @@
     <Compile Include="AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccountSelection.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AccountSelection.Designer.cs">
-      <DependentUpon>AccountSelection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DepositForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DepositForm.Designer.cs">
-      <DependentUpon>DepositForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -117,12 +105,6 @@
     </Compile>
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AccountSelection.resx">
-      <DependentUpon>AccountSelection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DepositForm.resx">
-      <DependentUpon>DepositForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

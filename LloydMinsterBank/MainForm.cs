@@ -25,6 +25,8 @@ namespace LloydMinsterBank
             loginForm.Show();
             lblBack1.Hide();
             lblBack2.Hide();
+            lblAccountHolder.Hide();
+            lblAccountHolderTitle.Hide();
             
 
         }
@@ -34,6 +36,23 @@ namespace LloydMinsterBank
         List<Account> userAccount = new List<Account>();
         List<Account> chosenAccount = new List<Account>();
         List<string> customerDetails = new List<string>();
+        string CurrentForm = "LoginForm";
+        string SelectedAccount;
+        protected string userEnteredPin;
+        AccountForm accountPage = new AccountForm ();
+        Program program = new Program();
+        MenuForm menuForm = new MenuForm();
+        LoginForm loginForm = new LoginForm();
+        TransactionForm transactionForm = new TransactionForm();
+        List<Account> accounts = new List<Account>();
+        string btn1Text = "Back";
+        string btn2Text = "Back";
+        List<double> userBalances = new List<double>();
+        int customerID;
+        string fullName;
+        double overdraft;
+        string selectedAccount;
+
 
         public void LoadCustomers()
         {
@@ -82,19 +101,14 @@ namespace LloydMinsterBank
                 if (account.getPin() == pin)
                 {
                     chosenAccount.Add(account);
+                    lblAccountHolder.Text = account.getFullName();
                     result = true;
                 }
             }
 
 
             return result;
-        }
-
-        string CurrentForm = "LoginForm";
-        string SelectedAccount;
-
-
-
+        }      
 
         public void setSelectedAccount(string account)
         {
@@ -138,8 +152,8 @@ namespace LloydMinsterBank
                 }
                 else if (buttonPressed == "5" || buttonPressed == "6")
                 {
-                    // Go To Deposit
-                    CurrentForm = "DepositForm";
+                    // Go To Withdraw
+                    CurrentForm = "WithdrawForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "7" || buttonPressed == "8")
@@ -156,14 +170,24 @@ namespace LloydMinsterBank
                 if (buttonPressed == "2" || buttonPressed == "7")
                 {
                     //Select Current Account
+                    selectedAccount = "CurrentAccount";
+                    CurrentForm = "TransactionForm";
+                    return CurrentForm;
+
                 }
                 else if (buttonPressed == "3" || buttonPressed == "8")
                 {
                     // Select Simple Account
+                    selectedAccount = "SimpleAccount";
+                    CurrentForm = "TransactionForm";
+                    return CurrentForm;
                 }
                 else if (buttonPressed == "4" || buttonPressed == "9")
                 {
                     // Select Long Account
+                    selectedAccount = "LongTermAccount";
+                    CurrentForm = "TransactionForm";
+                    return CurrentForm;
                 }
                 else if (buttonPressed == "LeftBack")
                 {
@@ -178,21 +202,30 @@ namespace LloydMinsterBank
                     CurrentForm = "TransactionForm";
                     return CurrentForm;
                 }
-            }
-            else if (CurrentForm == "DepositForm")
+            }           
+            
+            else if (CurrentForm == "AccountForm")
             {
 
-                if (buttonPressed == "2" || buttonPressed == "7")
+                if (buttonPressed == "1" || buttonPressed == "2")
                 {
-                    //Select Current Account
+                    // Go To Withdraw
+                    
                 }
-                else if (buttonPressed == "3" || buttonPressed == "8")
+                else if (buttonPressed == "3" || buttonPressed == "4")
                 {
-                    // Select Simple Account
+                    // Go To AccountPage
+                    
                 }
-                else if (buttonPressed == "4" || buttonPressed == "9")
+                else if (buttonPressed == "5" || buttonPressed == "6")
                 {
-                    // Select Long Account
+                    // Go To Withdraw
+                    
+                }
+                else if (buttonPressed == "7" || buttonPressed == "8")
+                {
+                    // Go To AccountPage
+                   
                 }
                 else if (buttonPressed == "LeftBack")
                 {
@@ -203,42 +236,10 @@ namespace LloydMinsterBank
                 else if (buttonPressed == "RightBack")
                 {
                     // GO to TransactionForm
-                    CurrentForm = "TransactionForm";
-                    return CurrentForm;
-                }
-            }
-            else if (CurrentForm == "AccountForm")
-            {
-
-                if (buttonPressed == "1" || buttonPressed == "2")
-                {
-                    // Go To Withdraw
-                    CurrentForm = "WithdrawForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "3" || buttonPressed == "4")
-                {
-                    // Go To AccountPage
-                    CurrentForm = "AccountPage";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "5" || buttonPressed == "6")
-                {
-                    // Go To Deposit
-                    CurrentForm = "DepositForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "7" || buttonPressed == "8")
-                {
-                    // Go To AccountPage
-                    CurrentForm = "AccountForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "Back")
-                {
                     CurrentForm = "MenuForm";
                     return CurrentForm;
                 }
+            
             }
             else if (CurrentForm == "TransferForm")
             {
@@ -246,14 +247,25 @@ namespace LloydMinsterBank
                 if (buttonPressed == "2" || buttonPressed == "7")
                 {
                     //Select Current Account
+                    selectedAccount = "CurrentAccount";
+                    CurrentForm = "TransactionForm";
+                    return CurrentForm;
+
+
                 }
                 else if (buttonPressed == "3" || buttonPressed == "8")
                 {
                     // Select Simple Account
+                    selectedAccount = "SimpleAccount";
+                    CurrentForm = "TransactionForm";
+                    return CurrentForm;
                 }
                 else if (buttonPressed == "4" || buttonPressed == "9")
                 {
                     // Select Long Account
+                    selectedAccount = "LongTermAccount";
+                    CurrentForm = "TransactionForm";
+                    return CurrentForm;
                 }
                 else if (buttonPressed == "LeftBack")
                 {
@@ -276,54 +288,11 @@ namespace LloydMinsterBank
 
 
 
-        // Variables
+        
 
-        protected string userEnteredPin;
-        //AccountForm accountPage = new AccountForm ();
-        Program program = new Program();
-        MenuForm menuForm = new MenuForm();
-        LoginForm loginForm = new LoginForm();
-        List<Account> accounts = new List<Account>();
-        string btn1Text = "Back";
-        string btn2Text = "Back";
-        List<double> userBalances = new List<double>();
-        int customerID;
-        string fullName;
-        double overdraft;
-        public void setChosenCustmerID(int customerID)
-        {
-            this.customerID = customerID;
-        }
-        public void setChosenCustomerBalanace(List<double>balance)
-        {
-            userBalances = balance;
-            
-        }
-        public void setChoseCustomerFullName(string fullName)
-        {
-            this.fullName = fullName;
-        }
-        public void setChosenCustomerOverdraft(double overdraft)
-        {
-            this.overdraft = overdraft;
-        }
-        public int getChosenCustmerID()
-        {
-            return customerID;
-        }
-        public List<double> getChosenCustomerBalanace()
-        {
-            return userBalances;
+        
 
-        }
-        public string getChoseCustomerFullName()
-        {
-            return fullName;
-        }
-        public double getChosenCustomerOverdraft()
-        {
-            return overdraft;
-        }
+
 
 
 
@@ -350,20 +319,15 @@ namespace LloydMinsterBank
                 pnlMiddle.Controls.Add(withdrawForm);
                 withdrawForm.BringToFront();
                 withdrawForm.Show();
+
+                foreach (var acc in chosenAccount)
+                {
+                    withdrawForm.GetDetails(acc.getBalance());
+                } 
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = "Please Enter Amount";
             }
-            else if (form == "DepositForm")
-            {
-                DepositForm depositForm = new DepositForm();
-                setCurrentForm("DepositForm");
-                depositForm.TopLevel = false;
-                pnlMiddle.Controls.Add(depositForm);
-                depositForm.BringToFront();
-                depositForm.Show();
-                lblBack1.Text = btn1Text;
-                lblBack2.Text = "Please Enter Amount";
-            }
+            
             else if (form == "AccountForm")
             {
                 AccountForm accountForm = new AccountForm();
@@ -372,6 +336,10 @@ namespace LloydMinsterBank
                 pnlMiddle.Controls.Add(accountForm);
                 accountForm.BringToFront();
                 accountForm.Show();
+                foreach (var acc in chosenAccount)
+                {
+                    accountForm.GetDetails(acc.getFullName(),acc.getBalance());
+                }
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = btn2Text;
             }
@@ -383,6 +351,25 @@ namespace LloydMinsterBank
                 pnlMiddle.Controls.Add(transferForm);
                 transferForm.BringToFront();
                 transferForm.Show();
+                foreach (var acc in chosenAccount)
+                {
+                    transferForm.GetDetails(acc.getBalance());
+                }
+                lblBack1.Text = btn1Text;
+                lblBack2.Text = "Please Enter Amount";
+            }
+            else if (form == "TransactionForm")
+            {
+                TransactionForm transactionForm = new TransactionForm();
+                setCurrentForm("TransactionForm");
+                transactionForm.TopLevel = false;
+                pnlMiddle.Controls.Add(transactionForm);
+                transactionForm.BringToFront();
+                transactionForm.Show();
+                foreach (var acc in chosenAccount)
+                {
+                    transactionForm.GetDetails(acc.getBalance(),selectedAccount);
+                }
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = "Please Enter Amount";
             }
@@ -393,9 +380,13 @@ namespace LloydMinsterBank
         {
             userEnteredPin = userEnteredPin + "0";
             string currentForm = getCurrentForm();
-            if (currentForm == "login")
+            if (currentForm == "LoginForm")
             {
                 loginForm.UpdatePinText(userEnteredPin);
+            }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
             }
         }
 
@@ -407,6 +398,12 @@ namespace LloydMinsterBank
             {
                 loginForm.UpdatePinText(userEnteredPin);
             }
+            else if (currentForm == "TransactionForm")
+            {            
+                
+                
+                transactionForm.updateTxt(userEnteredPin);
+            }
         }
 
         private void btnPinNum2_Click(object sender, EventArgs e)
@@ -416,6 +413,10 @@ namespace LloydMinsterBank
             if (currentForm == "LoginForm")
             {
                 loginForm.UpdatePinText(userEnteredPin);
+            }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
             }
         }
 
@@ -427,6 +428,10 @@ namespace LloydMinsterBank
             {
                 loginForm.UpdatePinText(userEnteredPin);
             }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
+            }
         }
 
         private void btnPinNum4_Click(object sender, EventArgs e)
@@ -436,6 +441,10 @@ namespace LloydMinsterBank
             if (currentForm == "LoginForm")
             {
                 loginForm.UpdatePinText(userEnteredPin);
+            }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
             }
         }
 
@@ -447,6 +456,10 @@ namespace LloydMinsterBank
             {
                 loginForm.UpdatePinText(userEnteredPin);
             }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
+            }
         }
 
         private void btnPinNum6_Click(object sender, EventArgs e)
@@ -456,6 +469,10 @@ namespace LloydMinsterBank
             if (currentForm == "LoginForm")
             {
                 loginForm.UpdatePinText(userEnteredPin);
+            }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
             }
         }
 
@@ -467,6 +484,10 @@ namespace LloydMinsterBank
             {
                 loginForm.UpdatePinText(userEnteredPin);
             }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
+            }
         }
         private void btnPinNum8_Click(object sender, EventArgs e)
         {
@@ -475,6 +496,10 @@ namespace LloydMinsterBank
             if (currentForm == "LoginForm")
             {
                 loginForm.UpdatePinText(userEnteredPin);
+            }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
             }
         }
 
@@ -485,6 +510,10 @@ namespace LloydMinsterBank
             if (currentForm == "LoginForm")
             {
                 loginForm.UpdatePinText(userEnteredPin);
+            }
+            else if (currentForm == "TransactionForm")
+            {
+                transactionForm.updateTxt(userEnteredPin);
             }
         }
 
@@ -500,6 +529,8 @@ namespace LloydMinsterBank
             setCurrentForm("LoginForm");
             lblBack1.Hide();
             lblBack2.Hide();
+            lblAccountHolder.Hide();
+            lblAccountHolderTitle.Hide();
             loginForm.ClearPinText();
         }
 
@@ -536,6 +567,10 @@ namespace LloydMinsterBank
                         updateSubForm(getCurrentForm());
                         lblBack1.Show();
                         lblBack2.Show();
+                        lblAccountHolder.Show();
+                        lblAccountHolderTitle.Show();
+                        userEnteredPin = "";
+                        
                     }
                     else if (verify == false)
                     {

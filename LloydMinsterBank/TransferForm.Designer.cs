@@ -33,9 +33,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblAccountHolder = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblLongTerm = new System.Windows.Forms.Label();
+            this.lblSimpleAccount = new System.Windows.Forms.Label();
+            this.lblCurrentAccount = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 147);
+            this.label2.Location = new System.Drawing.Point(22, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(282, 43);
             this.label2.TabIndex = 2;
@@ -53,7 +53,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 251);
+            this.label3.Location = new System.Drawing.Point(22, 245);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(387, 43);
             this.label3.TabIndex = 3;
@@ -63,7 +63,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 355);
+            this.label4.Location = new System.Drawing.Point(22, 345);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(447, 43);
             this.label4.TabIndex = 4;
@@ -91,35 +91,35 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Select Account to Transfer";
             // 
-            // lblAccountHolder
+            // lblLongTerm
             // 
-            this.lblAccountHolder.AutoSize = true;
-            this.lblAccountHolder.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountHolder.Location = new System.Drawing.Point(531, 147);
-            this.lblAccountHolder.Name = "lblAccountHolder";
-            this.lblAccountHolder.Size = new System.Drawing.Size(76, 43);
-            this.lblAccountHolder.TabIndex = 13;
-            this.lblAccountHolder.Text = "###";
+            this.lblLongTerm.AutoSize = true;
+            this.lblLongTerm.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLongTerm.Location = new System.Drawing.Point(526, 345);
+            this.lblLongTerm.Name = "lblLongTerm";
+            this.lblLongTerm.Size = new System.Drawing.Size(76, 43);
+            this.lblLongTerm.TabIndex = 28;
+            this.lblLongTerm.Text = "###";
             // 
-            // label5
+            // lblSimpleAccount
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(531, 251);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 43);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "###";
+            this.lblSimpleAccount.AutoSize = true;
+            this.lblSimpleAccount.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSimpleAccount.Location = new System.Drawing.Point(526, 240);
+            this.lblSimpleAccount.Name = "lblSimpleAccount";
+            this.lblSimpleAccount.Size = new System.Drawing.Size(76, 43);
+            this.lblSimpleAccount.TabIndex = 27;
+            this.lblSimpleAccount.Text = "###";
             // 
-            // label6
+            // lblCurrentAccount
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(531, 355);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 43);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "###";
+            this.lblCurrentAccount.AutoSize = true;
+            this.lblCurrentAccount.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentAccount.Location = new System.Drawing.Point(526, 135);
+            this.lblCurrentAccount.Name = "lblCurrentAccount";
+            this.lblCurrentAccount.Size = new System.Drawing.Size(76, 43);
+            this.lblCurrentAccount.TabIndex = 26;
+            this.lblCurrentAccount.Text = "###";
             // 
             // TransferForm
             // 
@@ -127,9 +127,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(891, 450);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblAccountHolder);
+            this.Controls.Add(this.lblLongTerm);
+            this.Controls.Add(this.lblSimpleAccount);
+            this.Controls.Add(this.lblCurrentAccount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -148,8 +148,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblAccountHolder;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblLongTerm;
+        private System.Windows.Forms.Label lblSimpleAccount;
+        private System.Windows.Forms.Label lblCurrentAccount;
     }
 }

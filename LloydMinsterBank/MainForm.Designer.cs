@@ -68,13 +68,19 @@
             this.btnPinNum6 = new System.Windows.Forms.Button();
             this.btnPinNum1 = new System.Windows.Forms.Button();
             this.pnlMiddle = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.lblBack2 = new System.Windows.Forms.Label();
             this.lblBack1 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
+            this.lblAccountHolderTitle = new System.Windows.Forms.Label();
+            this.lblAccountHolder = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -569,10 +575,44 @@
             // pnlMiddle
             // 
             this.pnlMiddle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlMiddle.Location = new System.Drawing.Point(143, 0);
+            this.pnlMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMiddle.Location = new System.Drawing.Point(0, 34);
             this.pnlMiddle.Name = "pnlMiddle";
-            this.pnlMiddle.Size = new System.Drawing.Size(867, 466);
+            this.pnlMiddle.Size = new System.Drawing.Size(867, 490);
             this.pnlMiddle.TabIndex = 4;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.panel16);
+            this.panel14.Controls.Add(this.pnlMiddle);
+            this.panel14.Controls.Add(this.panel15);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(143, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(867, 524);
+            this.panel14.TabIndex = 5;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel15.Controls.Add(this.lblAccountHolder);
+            this.panel15.Controls.Add(this.lblAccountHolderTitle);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(867, 34);
+            this.panel15.TabIndex = 0;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel16.Controls.Add(this.lblBack2);
+            this.panel16.Controls.Add(this.lblBack1);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel16.Location = new System.Drawing.Point(0, 466);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(867, 58);
+            this.panel16.TabIndex = 6;
             // 
             // lblBack2
             // 
@@ -594,16 +634,25 @@
             this.lblBack1.TabIndex = 2;
             this.lblBack1.Text = "Back";
             // 
-            // panel14
+            // lblAccountHolderTitle
             // 
-            this.panel14.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel14.Controls.Add(this.lblBack2);
-            this.panel14.Controls.Add(this.lblBack1);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel14.Location = new System.Drawing.Point(143, 426);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(867, 98);
-            this.panel14.TabIndex = 5;
+            this.lblAccountHolderTitle.AutoSize = true;
+            this.lblAccountHolderTitle.Font = new System.Drawing.Font("Microsoft New Tai Lue", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountHolderTitle.Location = new System.Drawing.Point(6, 7);
+            this.lblAccountHolderTitle.Name = "lblAccountHolderTitle";
+            this.lblAccountHolderTitle.Size = new System.Drawing.Size(179, 28);
+            this.lblAccountHolderTitle.TabIndex = 3;
+            this.lblAccountHolderTitle.Text = "Account Holder: ";
+            // 
+            // lblAccountHolder
+            // 
+            this.lblAccountHolder.AutoSize = true;
+            this.lblAccountHolder.Font = new System.Drawing.Font("Microsoft New Tai Lue", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountHolder.Location = new System.Drawing.Point(297, 5);
+            this.lblAccountHolder.Name = "lblAccountHolder";
+            this.lblAccountHolder.Size = new System.Drawing.Size(48, 28);
+            this.lblAccountHolder.TabIndex = 4;
+            this.lblAccountHolder.Text = "###";
             // 
             // MainForm
             // 
@@ -611,7 +660,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 755);
             this.Controls.Add(this.panel14);
-            this.Controls.Add(this.pnlMiddle);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -622,7 +670,10 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -669,8 +720,12 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button btnBack2;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label lblBack2;
         private System.Windows.Forms.Label lblBack1;
-        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label lblAccountHolder;
+        private System.Windows.Forms.Label lblAccountHolderTitle;
     }
 }

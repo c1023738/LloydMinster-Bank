@@ -15,24 +15,21 @@ namespace LloydMinsterBank
         public AccountForm()
         {
             InitializeComponent();
-            SetText();
+
         }
 
 
-        public void SetText()
+        public void GetDetails(string fullName,List<double> balances)
         {
-            Program program = new Program();
-            
-
-            /*lblAccountHolder.Text = 
-            lblCurrentAccount.Text =
-            lblSimpleAccount.Text = 
-            lblLongAccount.Text = */
+            lblAccountHolder.Text = fullName; 
+            lblCurrentAccount.Text = balances[0].ToString();
+            lblSimpleAccount.Text = balances[1].ToString();
+            lblLongAccount.Text = balances[2].ToString();
         }
 
 
 
 
 
-    }  
+    }
 }
