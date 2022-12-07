@@ -23,6 +23,9 @@ namespace LloydMinsterBank
             pnlMiddle.Controls.Add(loginForm);
             loginForm.BringToFront();
             loginForm.Show();
+            lblBack1.Hide();
+            lblBack2.Hide();
+            
 
         }
 
@@ -35,6 +38,10 @@ namespace LloydMinsterBank
         MenuForm menuForm = new MenuForm();
         LoginForm loginForm = new LoginForm();
 
+        string btn1Text = "Back";
+        string btn2Text = "Back";
+
+     
 
         public void updateSubForm(string form)
         {
@@ -46,6 +53,8 @@ namespace LloydMinsterBank
                 pnlMiddle.Controls.Add(menuForm);
                 menuForm.BringToFront();
                 menuForm.Show();
+                lblBack1.Text = btn1Text;
+                lblBack2.Text = btn2Text;
             }
             else if (form == "WithdrawForm")
             {
@@ -55,6 +64,8 @@ namespace LloydMinsterBank
                 pnlMiddle.Controls.Add(withdrawForm);
                 withdrawForm.BringToFront();
                 withdrawForm.Show();
+                lblBack1.Text = btn1Text;
+                lblBack2.Text = "Please Enter Amount";
             }
             else if (form == "DepositForm")
             {
@@ -64,6 +75,8 @@ namespace LloydMinsterBank
                 pnlMiddle.Controls.Add(depositForm);
                 depositForm.BringToFront();
                 depositForm.Show();
+                lblBack1.Text = btn1Text;
+                lblBack2.Text = "Please Enter Amount";
             }
             else if (form == "AccountForm")
             {
@@ -73,6 +86,19 @@ namespace LloydMinsterBank
                 pnlMiddle.Controls.Add(accountForm);
                 accountForm.BringToFront();
                 accountForm.Show();
+                lblBack1.Text = btn1Text;
+                lblBack2.Text = btn2Text;
+            }
+            else if (form == "TransferForm")
+            {
+                TransferForm transferForm = new TransferForm();
+                program.setCurrentForm("TransferForm");
+                transferForm.TopLevel = false;
+                pnlMiddle.Controls.Add(transferForm);
+                transferForm.BringToFront();
+                transferForm.Show();
+                lblBack1.Text = btn1Text;
+                lblBack2.Text = btn2Text;
             }
         }
 
@@ -177,14 +203,17 @@ namespace LloydMinsterBank
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
-        {
-            
+        {            
             loginForm.TopLevel = false;
             pnlMiddle.Controls.Add(loginForm);
             loginForm.BringToFront();
             loginForm.Show();
             userEnteredPin = "";
+            lblBack1.Enabled = false;
+            lblBack2.Enabled = false;
             program.setCurrentForm("LoginForm");
+            lblBack1.Hide();
+            lblBack2.Hide();
             loginForm.ClearPinText();
         }
 
@@ -214,6 +243,8 @@ namespace LloydMinsterBank
                     {
                         program.setCurrentForm("MenuForm");
                         updateSubForm(program.getCurrentForm());
+                        lblBack1.Show();
+                        lblBack2.Show();
                     }
                     else if (verify == false)
                     {
@@ -241,11 +272,13 @@ namespace LloydMinsterBank
         private void btnP1_Click(object sender, EventArgs e)
         {
             updateSubForm(program.sideButtons("1"));
+     
         }
 
         private void btnP2_Click(object sender, EventArgs e)
         {
             updateSubForm(program.sideButtons("2"));
+
         }
 
         private void btnP3_Click(object sender, EventArgs e)
@@ -279,8 +312,15 @@ namespace LloydMinsterBank
             updateSubForm(program.sideButtons("8"));
         }
 
+        private void btnBack1_Click(object sender, EventArgs e)
+        {
+            updateSubForm(program.sideButtons("Back"));
+        }
 
-        
+        private void btnBack2_Click(object sender, EventArgs e)
+        {
+            updateSubForm(program.sideButtons("Back"));
+        }
     }
 }
 

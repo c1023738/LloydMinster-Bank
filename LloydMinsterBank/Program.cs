@@ -20,9 +20,9 @@ namespace LloydMinsterBank
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+
         List<Account> userAccount = new List<Account>();
-        ChosenAccount chosenAccount = new ChosenAccount();
-      
+        List<Account> chosenAccount = new List<Account>();
         List<string> customerDetails = new List<string>();
 
         public void LoadCustomers()
@@ -65,8 +65,7 @@ namespace LloydMinsterBank
             {
                 if (account.getPin() == pin)
                 {
-                    chosenAccount.setChosenAccount(account.getCustomerID(), account.getFullName(), account.getBalance(), account.getOverdraftLimit());
-                    result = true;                   
+                    result = true;
                 }
             }
 
@@ -76,26 +75,27 @@ namespace LloydMinsterBank
 
 
         string CurrentForm = "LoginForm";
+        string SelectedAccount;
 
-        public List<string> GetChosenAccountDetails()
+        public void setSelectedAccount(string account)
         {
-            List<string> details = new List<string>();
-            details.Add(chosenAccount.getFullName());
-            details.Add(chosenAccount.GetCurrentAccount().ToString());
-            details.Add(chosenAccount.GetSimpleAccount().ToString());
-            details.Add(chosenAccount.GetLongTermAccount().ToString());
-            return details;
+            SelectedAccount = account;
         }
 
-        public void setCurrentForm(string form)
+        public string getSelectedAccount()
         {
-            CurrentForm = form;
+            return SelectedAccount;
+        }
+
+        public void setCurrentForm(string account)
+        {
+            SelectedAccount = account;
         }
 
         public string getCurrentForm()
-        {
+        {            
             return CurrentForm;
-        }        
+        }         
    
       
 
@@ -125,10 +125,11 @@ namespace LloydMinsterBank
                 }
                 else if (buttonPressed == "7" || buttonPressed == "8")
                 {
-                    // Go To AccountPage
-                    CurrentForm = "AccountForm";
+                    // Go To TransferForm
+                    CurrentForm = "TransferForm";
                     return CurrentForm;
                 }
+
             }
             else if (CurrentForm == "WithdrawForm")
             {
@@ -155,6 +156,11 @@ namespace LloydMinsterBank
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountForm";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "Back")
+                {
+                    CurrentForm = "MenuForm";
                     return CurrentForm;
                 }
             }
@@ -185,6 +191,11 @@ namespace LloydMinsterBank
                     CurrentForm = "AccountForm";
                     return CurrentForm;
                 }
+                else if (buttonPressed == "Back")
+                {
+                    CurrentForm = "MenuForm";
+                    return CurrentForm;
+                }
             }
             else if (CurrentForm == "AccountForm")
             {
@@ -211,6 +222,44 @@ namespace LloydMinsterBank
                 {
                     // Go To AccountPage
                     CurrentForm = "AccountForm";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "Back")
+                {
+                    CurrentForm = "MenuForm";
+                    return CurrentForm;
+                }
+            }
+            else if (CurrentForm == "TransferForm")
+            {
+
+                if (buttonPressed == "1" || buttonPressed == "2")
+                {
+                    // Go To Withdraw
+                    CurrentForm = "WithdrawForm";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "3" || buttonPressed == "4")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountPage";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "5" || buttonPressed == "6")
+                {
+                    // Go To Deposit
+                    CurrentForm = "DepositForm";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "7" || buttonPressed == "8")
+                {
+                    // Go To AccountPage
+                    CurrentForm = "AccountForm";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "Back")
+                {
+                    CurrentForm = "MenuForm";
                     return CurrentForm;
                 }
             }

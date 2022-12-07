@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack1 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.btnP4 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnP3 = new System.Windows.Forms.Button();
@@ -38,6 +40,8 @@
             this.btnP1 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBack2 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.btnP8 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnP7 = new System.Windows.Forms.Button();
@@ -64,14 +68,20 @@
             this.btnPinNum6 = new System.Windows.Forms.Button();
             this.btnPinNum1 = new System.Windows.Forms.Button();
             this.pnlMiddle = new System.Windows.Forms.Panel();
+            this.lblBack2 = new System.Windows.Forms.Label();
+            this.lblBack1 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.btnBack1);
+            this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.btnP4);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnP3);
@@ -83,8 +93,32 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 649);
+            this.panel1.Size = new System.Drawing.Size(143, 755);
             this.panel1.TabIndex = 0;
+            // 
+            // btnBack1
+            // 
+            this.btnBack1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBack1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBack1.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnBack1.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnBack1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold);
+            this.btnBack1.Location = new System.Drawing.Point(0, 460);
+            this.btnBack1.Name = "btnBack1";
+            this.btnBack1.Size = new System.Drawing.Size(143, 65);
+            this.btnBack1.TabIndex = 22;
+            this.btnBack1.Text = ">";
+            this.btnBack1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBack1.UseVisualStyleBackColor = false;
+            this.btnBack1.Click += new System.EventHandler(this.btnBack1_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 420);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(143, 40);
+            this.panel9.TabIndex = 23;
             // 
             // btnP4
             // 
@@ -185,6 +219,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.btnBack2);
+            this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.btnP8);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.btnP7);
@@ -196,8 +232,32 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1010, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(143, 649);
+            this.panel2.Size = new System.Drawing.Size(143, 755);
             this.panel2.TabIndex = 1;
+            // 
+            // btnBack2
+            // 
+            this.btnBack2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnBack2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBack2.FlatAppearance.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnBack2.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnBack2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold);
+            this.btnBack2.Location = new System.Drawing.Point(0, 460);
+            this.btnBack2.Name = "btnBack2";
+            this.btnBack2.Size = new System.Drawing.Size(143, 65);
+            this.btnBack2.TabIndex = 14;
+            this.btnBack2.Text = "<";
+            this.btnBack2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack2.UseVisualStyleBackColor = false;
+            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 420);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(143, 40);
+            this.panel10.TabIndex = 15;
             // 
             // btnP8
             // 
@@ -315,7 +375,7 @@
             this.panel3.Controls.Add(this.btnPinNum6);
             this.panel3.Controls.Add(this.btnPinNum1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(143, 418);
+            this.panel3.Location = new System.Drawing.Point(143, 524);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(867, 231);
             this.panel3.TabIndex = 3;
@@ -508,17 +568,49 @@
             // 
             // pnlMiddle
             // 
-            this.pnlMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMiddle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnlMiddle.Location = new System.Drawing.Point(143, 0);
             this.pnlMiddle.Name = "pnlMiddle";
-            this.pnlMiddle.Size = new System.Drawing.Size(867, 418);
+            this.pnlMiddle.Size = new System.Drawing.Size(867, 466);
             this.pnlMiddle.TabIndex = 4;
+            // 
+            // lblBack2
+            // 
+            this.lblBack2.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBack2.Location = new System.Drawing.Point(499, 3);
+            this.lblBack2.Name = "lblBack2";
+            this.lblBack2.Size = new System.Drawing.Size(362, 43);
+            this.lblBack2.TabIndex = 3;
+            this.lblBack2.Text = "Back";
+            this.lblBack2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblBack1
+            // 
+            this.lblBack1.AutoSize = true;
+            this.lblBack1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBack1.Location = new System.Drawing.Point(6, 3);
+            this.lblBack1.Name = "lblBack1";
+            this.lblBack1.Size = new System.Drawing.Size(90, 43);
+            this.lblBack1.TabIndex = 2;
+            this.lblBack1.Text = "Back";
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel14.Controls.Add(this.lblBack2);
+            this.panel14.Controls.Add(this.lblBack1);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel14.Location = new System.Drawing.Point(143, 426);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(867, 98);
+            this.panel14.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 649);
+            this.ClientSize = new System.Drawing.Size(1153, 755);
+            this.Controls.Add(this.panel14);
             this.Controls.Add(this.pnlMiddle);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -529,6 +621,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -571,5 +665,12 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnP1;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnBack1;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button btnBack2;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label lblBack2;
+        private System.Windows.Forms.Label lblBack1;
+        private System.Windows.Forms.Panel panel14;
     }
 }

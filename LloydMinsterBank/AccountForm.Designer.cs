@@ -124,6 +124,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel1.Controls.Add(this.lblAccountHolder);
             this.panel1.Controls.Add(this.lblCurrentAccount);
             this.panel1.Controls.Add(this.lblLongAccount);
@@ -136,6 +137,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);

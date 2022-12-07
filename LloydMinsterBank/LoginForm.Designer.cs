@@ -36,7 +36,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(318, 86);
+            this.label1.Location = new System.Drawing.Point(310, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(257, 43);
             this.label1.TabIndex = 0;
@@ -45,7 +45,7 @@
             // lblPinTxt
             // 
             this.lblPinTxt.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPinTxt.Location = new System.Drawing.Point(326, 157);
+            this.lblPinTxt.Location = new System.Drawing.Point(310, 238);
             this.lblPinTxt.Name = "lblPinTxt";
             this.lblPinTxt.Size = new System.Drawing.Size(249, 43);
             this.lblPinTxt.TabIndex = 1;
@@ -57,7 +57,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(891, 450);
+            this.ClientSize = new System.Drawing.Size(891, 535);
             this.Controls.Add(this.lblPinTxt);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

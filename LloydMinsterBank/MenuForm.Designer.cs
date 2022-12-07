@@ -33,6 +33,7 @@
             this.btnWithdrawForm = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAccountForm = new System.Windows.Forms.Button();
+            this.btnTransfer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +58,6 @@
             this.btnDepositForm.TabIndex = 1;
             this.btnDepositForm.Text = "Deposit";
             this.btnDepositForm.UseVisualStyleBackColor = false;
-
             // 
             // btnWithdrawForm
             // 
@@ -72,29 +72,41 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnTransfer);
             this.panel2.Controls.Add(this.btnAccountForm);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 209);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(880, 202);
+            this.panel2.Size = new System.Drawing.Size(880, 219);
             this.panel2.TabIndex = 1;
             // 
             // btnAccountForm
             // 
             this.btnAccountForm.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAccountForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAccountForm.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnAccountForm.Location = new System.Drawing.Point(0, 0);
             this.btnAccountForm.Name = "btnAccountForm";
-            this.btnAccountForm.Size = new System.Drawing.Size(880, 202);
+            this.btnAccountForm.Size = new System.Drawing.Size(440, 219);
             this.btnAccountForm.TabIndex = 0;
-            this.btnAccountForm.Text = "Balance Info";
+            this.btnAccountForm.Text = "Account Info";
             this.btnAccountForm.UseVisualStyleBackColor = false;
+            // 
+            // btnTransfer
+            // 
+            this.btnTransfer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnTransfer.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTransfer.Location = new System.Drawing.Point(440, 0);
+            this.btnTransfer.Name = "btnTransfer";
+            this.btnTransfer.Size = new System.Drawing.Size(440, 219);
+            this.btnTransfer.TabIndex = 1;
+            this.btnTransfer.Text = "Transfer";
+            this.btnTransfer.UseVisualStyleBackColor = false;
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 411);
+            this.ClientSize = new System.Drawing.Size(880, 428);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -113,5 +125,6 @@
         private System.Windows.Forms.Button btnWithdrawForm;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAccountForm;
+        private System.Windows.Forms.Button btnTransfer;
     }
 }

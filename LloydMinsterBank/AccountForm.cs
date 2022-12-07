@@ -22,12 +22,12 @@ namespace LloydMinsterBank
         public void SetText()
         {
             Program program = new Program();
-            List<string> details = new List<string>(program.GetChosenAccountDetails());
+            
 
-            lblAccountHolder.Text = details[0];
-            lblCurrentAccount.Text = details[1];
-            lblSimpleAccount.Text = details[2];
-            lblLongAccount.Text = details[3];
+            /*lblAccountHolder.Text = 
+            lblCurrentAccount.Text =
+            lblSimpleAccount.Text = 
+            lblLongAccount.Text = */
         }
 
 
