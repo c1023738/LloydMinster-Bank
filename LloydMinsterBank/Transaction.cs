@@ -23,10 +23,11 @@
         int operation = currentBalance - amount;
         return operation ;
     }
-    public int Deposit(int currentBalance, int amount) // Sends to SQL Code number to Deposit Amount
+    public void Transfer(int accountOne,int accountTwo, int amount) // Sends to SQL Code number to Deposit Amount
     {
-        int operation = currentBalance + amount;
-        return operation;
+        int accountOneAfter = accountOne - amount;
+        int accountTwoAfter = accountTwo + amount;
+       // return operation;
     }
 
 }

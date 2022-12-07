@@ -26,7 +26,7 @@ namespace LloydMinsterBank
         {            
             lblCurrentAccount.Text = balances[0].ToString();
             lblSimpleAccount.Text = balances[1].ToString();
-            lblLongTerm.Text = balances[2].ToString();
+            
 
         }
         

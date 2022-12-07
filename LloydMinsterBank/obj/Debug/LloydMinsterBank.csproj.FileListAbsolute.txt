@@ -37,5 +37,6 @@ D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.MainForm.
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.MenuForm.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.AccountForm.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.WithdrawForm.resources
-D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.TransactionForm.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.TransferForm.resources
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.WithdrawTranscationForm.resources
+D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.TransferTransactionForm.resources
