@@ -15,6 +15,21 @@ namespace LloydMinsterBank
         public WithdrawForm()
         {
             InitializeComponent();
+            GetDetails();
         }
+
+        Program pg = new Program();
+        MainForm mm = new MainForm();
+
+        List<double> list = new List<double>();
+
+        public void GetDetails()
+        {
+            //lblAccountHolder.Text = mm.GetChoseCustomerFullName();
+        }
+        
+
+
+
     }
 }
