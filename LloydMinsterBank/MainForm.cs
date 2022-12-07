@@ -386,7 +386,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -402,7 +402,7 @@ namespace LloydMinsterBank
             {            
                 
                 
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -416,7 +416,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -430,7 +430,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -444,7 +444,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -458,7 +458,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -472,7 +472,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -486,7 +486,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
         private void btnPinNum8_Click(object sender, EventArgs e)
@@ -499,7 +499,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -513,7 +513,7 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "TransactionForm")
             {
-                transactionForm.updateTxt(userEnteredPin);
+                transactionForm.updateText(userEnteredPin);
             }
         }
 
@@ -538,6 +538,7 @@ namespace LloydMinsterBank
         {
             userEnteredPin = "";
             loginForm.ClearPinText();
+            transactionForm.ClearPinText();
         }
 
 

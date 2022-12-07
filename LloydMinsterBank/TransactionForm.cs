@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,11 +17,10 @@ namespace LloydMinsterBank
         {
             InitializeComponent();
         }
-
         
-
-        public void GetDetails(List<double> balances,string setAccount)
-        {        
+        
+        public void GetDetails(List<double> balances, string setAccount)
+        {
             if (setAccount == "CurrentAccount")
             {
                 // Able to withdraw and deposit and move can go bellow 0 depending on overdraft
@@ -39,17 +39,18 @@ namespace LloydMinsterBank
                 lblTitle.Text = "Long Term Deposit Account Balance: ";
                 lblBalance.Text = balances[2].ToString();
             }
+            
 
         }
-        public void updateTxt(string enteredNumber)
+        public void updateText(string enteredNumber)
         {
-            lblPinTxt.Text = enteredNumber;
+            lblEnterPin.Text = "tEST";
+            
         }
 
         public void ClearPinText()
         {
-            lblPinTxt.Text = "****";
+            lblEnterPin.Text = "****";
         }
-
     }
 }

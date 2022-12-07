@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblBalance = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblPinTxt = new System.Windows.Forms.Label();
+            this.lblEnterPin = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblBalance
-            // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold);
-            this.lblBalance.Location = new System.Drawing.Point(373, 163);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(76, 43);
-            this.lblBalance.TabIndex = 0;
-            this.lblBalance.Text = "###";
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(373, 96);
+            this.lblTitle.Location = new System.Drawing.Point(356, 71);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(76, 43);
-            this.lblTitle.TabIndex = 1;
+            this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "###";
             // 
-            // lblPinTxt
+            // lblEnterPin
             // 
-            this.lblPinTxt.AutoSize = true;
-            this.lblPinTxt.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold);
-            this.lblPinTxt.Location = new System.Drawing.Point(373, 246);
-            this.lblPinTxt.Name = "lblPinTxt";
-            this.lblPinTxt.Size = new System.Drawing.Size(76, 43);
-            this.lblPinTxt.TabIndex = 2;
-            this.lblPinTxt.Text = "###";
+            this.lblEnterPin.AutoSize = true;
+            this.lblEnterPin.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold);
+            this.lblEnterPin.Location = new System.Drawing.Point(346, 251);
+            this.lblEnterPin.Name = "lblEnterPin";
+            this.lblEnterPin.Size = new System.Drawing.Size(76, 43);
+            this.lblEnterPin.TabIndex = 1;
+            this.lblEnterPin.Text = "###";
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold);
+            this.lblBalance.Location = new System.Drawing.Point(356, 155);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(76, 43);
+            this.lblBalance.TabIndex = 2;
+            this.lblBalance.Text = "###";
             // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(891, 450);
-            this.Controls.Add(this.lblPinTxt);
-            this.Controls.Add(this.lblTitle);
+            this.ClientSize = new System.Drawing.Size(875, 411);
             this.Controls.Add(this.lblBalance);
+            this.Controls.Add(this.lblEnterPin);
+            this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransactionForm";
             this.Text = "TransactionForm";
@@ -82,8 +82,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblBalance;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblPinTxt;
+        private System.Windows.Forms.Label lblEnterPin;
+        private System.Windows.Forms.Label lblBalance;
     }
 }
