@@ -37,6 +37,13 @@ class Account
         return customerID;
     }
 
+
+    public string getFullName()
+    {
+        return firstName + "," + lastName;
+    }
+
+
     public List<double> getBalance()
     {
         List<double> balance = new List<double>();

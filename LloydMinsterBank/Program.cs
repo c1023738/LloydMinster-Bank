@@ -20,10 +20,11 @@ namespace LloydMinsterBank
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-        
         List<Account> userAccount = new List<Account>();
-        List<Account> chosenAccount = new List<Account>();
-        
+        ChosenAccount chosenAccount = new ChosenAccount();
+      
+        List<string> customerDetails = new List<string>();
+
         public void LoadCustomers()
         {
             SqliteDataAccess dbOb = new SqliteDataAccess();
@@ -50,7 +51,7 @@ namespace LloydMinsterBank
                     double Overdraft = double.Parse(temp);
                     temp = result["Pin"].ToString();
                     int pin = int.Parse(temp);
-                    userAccount.Add(new Account(customerID, result["FirstName"].ToString(), result["LastName"].ToString(), CurrentAccount,SimpleAccount,LongTermAccount, Overdraft, pin));
+                    userAccount.Add(new Account(customerID, result["FirstName"].ToString(), result["LastName"].ToString(), CurrentAccount, SimpleAccount, LongTermAccount, Overdraft, pin));
 
                 }
             }
@@ -64,17 +65,27 @@ namespace LloydMinsterBank
             {
                 if (account.getPin() == pin)
                 {
-                    chosenAccount.Add(account);
-                    result = true;
+                    chosenAccount.setChosenAccount(account.getCustomerID(), account.getFullName(), account.getBalance(), account.getOverdraftLimit());
+                    result = true;                   
                 }
             }
 
             return result;
         }
 
-       
+
 
         string CurrentForm = "LoginForm";
+
+        public List<string> GetChosenAccountDetails()
+        {
+            List<string> details = new List<string>();
+            details.Add(chosenAccount.getFullName());
+            details.Add(chosenAccount.GetCurrentAccount().ToString());
+            details.Add(chosenAccount.GetSimpleAccount().ToString());
+            details.Add(chosenAccount.GetLongTermAccount().ToString());
+            return details;
+        }
 
         public void setCurrentForm(string form)
         {
@@ -84,22 +95,21 @@ namespace LloydMinsterBank
         public string getCurrentForm()
         {
             return CurrentForm;
-        }
-
-
-        
+        }        
+   
+      
 
         public string sideButtons(string buttonPressed)
         {
-            
+
             if (CurrentForm == "MenuForm")
             {
-               if (buttonPressed == "1" || buttonPressed == "2")
+                if (buttonPressed == "1" || buttonPressed == "2")
                 {
                     // Go To Withdraw
                     CurrentForm = "WithdrawForm";
                     return CurrentForm;
-                    
+
                 }
                 else if (buttonPressed == "3" || buttonPressed == "4")
                 {
@@ -191,7 +201,7 @@ namespace LloydMinsterBank
                     CurrentForm = "AccountPage";
                     return CurrentForm;
                 }
-                else if(buttonPressed == "5" || buttonPressed == "6")
+                else if (buttonPressed == "5" || buttonPressed == "6")
                 {
                     // Go To Deposit
                     CurrentForm = "DepositForm";
@@ -208,6 +218,5 @@ namespace LloydMinsterBank
         }
 
 
-
-    }   
+    }
 }

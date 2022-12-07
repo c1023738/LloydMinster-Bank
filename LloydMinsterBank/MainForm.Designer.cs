@@ -213,6 +213,7 @@
             this.btnP8.Text = "<";
             this.btnP8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnP8.UseVisualStyleBackColor = false;
+            this.btnP8.Click += new System.EventHandler(this.btnP8_Click);
             // 
             // panel5
             // 
@@ -236,6 +237,7 @@
             this.btnP7.Text = "<";
             this.btnP7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnP7.UseVisualStyleBackColor = false;
+            this.btnP7.Click += new System.EventHandler(this.btnP7_Click);
             // 
             // panel11
             // 
@@ -259,6 +261,7 @@
             this.btnP6.Text = "<";
             this.btnP6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnP6.UseVisualStyleBackColor = false;
+            this.btnP6.Click += new System.EventHandler(this.btnP6_Click);
             // 
             // panel12
             // 
@@ -282,6 +285,7 @@
             this.btnP5.Text = "<";
             this.btnP5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnP5.UseVisualStyleBackColor = false;
+            this.btnP5.Click += new System.EventHandler(this.btnP5_Click);
             // 
             // panel13
             // 

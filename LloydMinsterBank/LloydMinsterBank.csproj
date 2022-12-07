@@ -62,6 +62,7 @@
     <Compile Include="AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChosenAccount.cs" />
     <Compile Include="DepositForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +98,12 @@
     <Compile Include="WithdrawForm.Designer.cs">
       <DependentUpon>WithdrawForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepositForm.resx">
+      <DependentUpon>DepositForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +122,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WithdrawForm.resx">
+      <DependentUpon>WithdrawForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
