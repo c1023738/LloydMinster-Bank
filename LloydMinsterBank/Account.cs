@@ -15,7 +15,7 @@ class Account
     protected string type;
 
 
-    public Account(int customerID, string firstName, string lastName, double CurrentAccount, double SimpleAccount, double LongTermAccount, double overdraftLimit, int pin)
+    public Account(int customerID, string firstName, string lastName, double CurrentAccount, double SimpleAccount, double LongTermAccount, double salary, int pin)
     {
         this.customerID = customerID;
         this.firstName = firstName;
@@ -23,10 +23,10 @@ class Account
         this.CurrentAccount = CurrentAccount;
         this.SimpleAccount = SimpleAccount;
         this.LongTermAccount = LongTermAccount;
-        this.overdraftLimit = overdraftLimit;
+        this.salary = salary;
         this.pin = pin;
 
-    }   
+    }
     public int getPin()
     {
         return pin;
@@ -53,9 +53,22 @@ class Account
         return balance;
     }
 
-    public double getOverdraftLimit()
+    public double getSalary()
     {
 
-        return overdraftLimit;
+        return salary;
+    }
+
+    public void setCurrentAccount(double newBalance)
+    {
+        CurrentAccount = newBalance;
+    }
+    public void setSimpleAccount(double newBalance)
+    {
+        SimpleAccount = newBalance;
+    }
+    public void setLongTermAccount(double newBalance)
+    {
+        LongTermAccount = newBalance;
     }
 }

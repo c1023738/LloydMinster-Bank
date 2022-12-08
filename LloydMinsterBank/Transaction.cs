@@ -1,33 +1,69 @@
-﻿class Transaction
+﻿using LloydMinsterBank;
+
+class Transaction
 {
 
-    private string TypeOfTransaction;
 
-    public Transaction(int currentBalance,int amount, string operation) // Sets Transaction Class
-    {
-        
-    }
 
-    public void setTypeOfTransaction(string selectedType)
-    {
-        TypeOfTransaction= selectedType;
-    }
 
-    public string getTypeOfTransaction()
-    {
-        return TypeOfTransaction;
-    }
 
-    public int Withdraw(int currentBalance, int amount) // Sends to SQL Code number to Withdraw Amount
+
+    public string Withdraw(string accountOne, double currentBalance, double amount, double salary) // Sends to SQL Code number to Withdraw Amount
     {
-        int operation = currentBalance - amount;
-        return operation ;
+        MainForm mm = new MainForm();
+        double calculation = currentBalance - amount;
+        double calculatedOverdraft = currentBalance + (currentBalance / 10);
+        if (accountOne == "CurrentAccount")
+        {
+            if (salary >= 30000)
+            {
+                if (calculation < 0)
+                {
+                    if (calculation >= calculatedOverdraft)
+                    {
+                        return "Successful Withdraw";
+                        mm.setBalance(calculation, accountOne);
+                    }
+                    else
+                    {
+                        return "Invalid Withdraw";
+                    }
+                }
+                else
+                {
+                    return "Successful Withdraw";
+                    mm.setBalance(calculation, accountOne);
+                }
+            }
+            else
+            {
+                if (calculation < 0)
+                {
+                    return "Invalid Withdraw";
+                }
+                return "Successful Withdraw";
+                mm.setBalance(calculation, accountOne);
+            }
+        }
+        else if (accountOne == "SimpleAccount")
+        {
+            if (calculation > 0)
+            {
+                return "Successful Withdraw";
+                mm.setBalance(calculation, accountOne);
+            }
+            else
+            {
+                return "Invalid Withdraw";
+            }
+        }
+        return "Invalid Withdraw";
     }
-    public void Transfer(int accountOne,int accountTwo, int amount) // Sends to SQL Code number to Deposit Amount
+    public void Transfer(int accountOne, int accountTwo, int amount) // Sends to SQL Code number to Deposit Amount
     {
         int accountOneAfter = accountOne - amount;
         int accountTwoAfter = accountTwo + amount;
-       // return operation;
+        // return operation;
     }
 
 }

@@ -31,8 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblLongTerm = new System.Windows.Forms.Label();
             this.lblSimpleAccount = new System.Windows.Forms.Label();
             this.lblCurrentAccount = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -69,26 +67,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Simple Deposit Account:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 345);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(447, 43);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Long Term Deposit Account:";
-            // 
-            // lblLongTerm
-            // 
-            this.lblLongTerm.AutoSize = true;
-            this.lblLongTerm.Font = new System.Drawing.Font("Microsoft New Tai Lue", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLongTerm.Location = new System.Drawing.Point(574, 345);
-            this.lblLongTerm.Name = "lblLongTerm";
-            this.lblLongTerm.Size = new System.Drawing.Size(76, 43);
-            this.lblLongTerm.TabIndex = 25;
-            this.lblLongTerm.Text = "###";
-            // 
             // lblSimpleAccount
             // 
             this.lblSimpleAccount.AutoSize = true;
@@ -114,7 +92,6 @@
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -128,7 +105,6 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(891, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblLongTerm);
             this.Controls.Add(this.lblSimpleAccount);
             this.Controls.Add(this.lblCurrentAccount);
             this.Controls.Add(this.panel2);
@@ -147,8 +123,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblLongTerm;
         private System.Windows.Forms.Label lblSimpleAccount;
         private System.Windows.Forms.Label lblCurrentAccount;
         private System.Windows.Forms.Panel panel2;

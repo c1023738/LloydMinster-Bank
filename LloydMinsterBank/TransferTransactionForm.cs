@@ -74,14 +74,14 @@ namespace LloydMinsterBank
 
         public void updateText(string enteredNumber)
         {
-            lblDifferent.Text = enteredNumber;
+            label3.Text = enteredNumber;
 
-            lblDifferent.Text = enteredNumber;
+            label3.Text = enteredNumber;
         }
 
         public void ClearPinText()
         {
-            lblDifferent.Text = "****";
+            label3.Text = "****";
         }
     }
 }

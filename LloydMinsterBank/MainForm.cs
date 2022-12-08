@@ -27,7 +27,7 @@ namespace LloydMinsterBank
             lblBack2.Hide();
             lblAccountHolder.Hide();
             lblAccountHolderTitle.Hide();
-            
+
 
         }
 
@@ -39,10 +39,11 @@ namespace LloydMinsterBank
         string CurrentForm = "LoginForm";
         string SelectedAccount;
         protected string userEnteredPin;
-        AccountForm accountPage = new AccountForm ();
+        AccountForm accountPage = new AccountForm();
         Program program = new Program();
         MenuForm menuForm = new MenuForm();
         LoginForm loginForm = new LoginForm();
+        Transaction transaction = new Transaction();
         WithdrawTranscationForm withdrawTransactionForm = new WithdrawTranscationForm();
         TransferTransactionForm transferTransactionForm = new TransferTransactionForm();
         List<Account> accounts = new List<Account>();
@@ -78,11 +79,11 @@ namespace LloydMinsterBank
                     double SimpleAccount = double.Parse(temp);
                     temp = result["LongTermAccountBalance"].ToString();
                     double LongTermAccount = double.Parse(temp);
-                    temp = result["OverdraftLimit"].ToString();
-                    double Overdraft = double.Parse(temp);
+                    temp = result["Salary"].ToString();
+                    double salary = double.Parse(temp);
                     temp = result["Pin"].ToString();
                     int pin = int.Parse(temp);
-                    userAccount.Add(new Account(customerID, result["FirstName"].ToString(), result["LastName"].ToString(), CurrentAccount, SimpleAccount, LongTermAccount, Overdraft, pin));
+                    userAccount.Add(new Account(customerID, result["FirstName"].ToString(), result["LastName"].ToString(), CurrentAccount, SimpleAccount, LongTermAccount, salary, pin));
 
                 }
             }
@@ -90,7 +91,24 @@ namespace LloydMinsterBank
         }
 
 
-
+        public void setBalance(double newBalance, string accountType)
+        {
+            foreach (var account in chosenAccount)
+            {
+                if (accountType == "CurrentAccount")
+                {
+                    account.setCurrentAccount(newBalance);
+                }
+                else if (accountType == "SimpleAccount")
+                {
+                    account.setSimpleAccount(newBalance);
+                }
+                else if (accountType == "LongTermAccount")
+                {
+                    account.setLongTermAccount(newBalance);
+                }
+            }
+        }
 
 
 
@@ -110,7 +128,7 @@ namespace LloydMinsterBank
 
 
             return result;
-        }      
+        }
 
         public void setSelectedAccount(string account)
         {
@@ -186,7 +204,7 @@ namespace LloydMinsterBank
                 }
                 else if (buttonPressed == "4" || buttonPressed == "9")
                 {
-                    
+
                 }
                 else if (buttonPressed == "LeftBack")
                 {
@@ -196,35 +214,35 @@ namespace LloydMinsterBank
                 }
                 else if (buttonPressed == "RightBack")
                 {
-                    
+
                     //GO to TransactionForm
                     CurrentForm = "MenuForm";
                     return CurrentForm;
                 }
-            }           
-            
+            }
+
             else if (CurrentForm == "AccountForm")
             {
 
                 if (buttonPressed == "1" || buttonPressed == "2")
                 {
                     // Go To Withdraw
-                    
+
                 }
                 else if (buttonPressed == "3" || buttonPressed == "4")
                 {
                     // Go To AccountPage
-                    
+
                 }
                 else if (buttonPressed == "5" || buttonPressed == "6")
                 {
                     // Go To Withdraw
-                    
+
                 }
                 else if (buttonPressed == "7" || buttonPressed == "8")
                 {
                     // Go To AccountPage
-                   
+
                 }
                 else if (buttonPressed == "LeftBack")
                 {
@@ -238,11 +256,11 @@ namespace LloydMinsterBank
                     CurrentForm = "MenuForm";
                     return CurrentForm;
                 }
-            
+
             }
             else if (CurrentForm == "TransferForm")
             {
-                
+
 
                 if (buttonPressed == "2")
                 {
@@ -306,7 +324,7 @@ namespace LloydMinsterBank
                 if (buttonPressed == "2")
                 {
                     //Select Current Account
-                    
+
                     CurrentForm = "WithdrawTransactionForm";
                     return CurrentForm;
 
@@ -315,32 +333,32 @@ namespace LloydMinsterBank
                 else if (buttonPressed == "3")
                 {
                     // Select Simple Account
-                    
+
                     CurrentForm = "WithdrawTransactionForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "4")
                 {
                     // Select Long Account
-                   
+
                     CurrentForm = "WithdrawTransactionForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "7")
                 {
-                 
+
                     CurrentForm = "WithdrawTransactionForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "8")
                 {
-               
+
                     CurrentForm = "WithdrawTransactionForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "9")
                 {
-               
+
                     CurrentForm = "WithdrawTransactionForm";
                     return CurrentForm;
                 }
@@ -425,9 +443,9 @@ namespace LloydMinsterBank
 
 
 
-        
 
-        
+
+
 
 
 
@@ -460,11 +478,11 @@ namespace LloydMinsterBank
                 foreach (var acc in chosenAccount)
                 {
                     withdrawForm.GetDetails(acc.getBalance());
-                } 
+                }
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = btn2Text;
             }
-            
+
             else if (form == "AccountForm")
             {
                 AccountForm accountForm = new AccountForm();
@@ -475,7 +493,7 @@ namespace LloydMinsterBank
                 accountForm.Show();
                 foreach (var acc in chosenAccount)
                 {
-                    accountForm.GetDetails(acc.getFullName(),acc.getBalance());
+                    accountForm.GetDetails(acc.getFullName(), acc.getBalance());
                 }
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = btn2Text;
@@ -497,7 +515,7 @@ namespace LloydMinsterBank
             }
             else if (form == "WithdrawTransactionForm")
             {
-                
+
                 setCurrentForm("WithdrawTransactionForm");
                 withdrawTransactionForm.TopLevel = false;
                 pnlMiddle.Controls.Add(withdrawTransactionForm);
@@ -505,9 +523,9 @@ namespace LloydMinsterBank
                 withdrawTransactionForm.Show();
                 foreach (var acc in chosenAccount)
                 {
-                   withdrawTransactionForm.GetDetails(acc.getBalance(),accountOne);
+                    withdrawTransactionForm.GetDetails(acc.getBalance(), accountOne);
                 }
-                
+
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = btn2Text;
             }
@@ -521,14 +539,14 @@ namespace LloydMinsterBank
                 transferTransactionForm.Show();
                 foreach (var acc in chosenAccount)
                 {
-                    transferTransactionForm.GetDetails(acc.getBalance(), accountOne,accountTwo);
+                    transferTransactionForm.GetDetails(acc.getBalance(), accountOne, accountTwo);
                 }
 
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = btn2Text;
             }
         }
-        
+
 
         // NUM PAD
         private void btnPinNum0_Click(object sender, EventArgs e)
@@ -554,9 +572,9 @@ namespace LloydMinsterBank
                 loginForm.UpdatePinText(userEnteredPin);
             }
             else if (currentForm == "WithdrawTransactionForm")
-            {            
-                
-                
+            {
+
+
                 withdrawTransactionForm.updateText(userEnteredPin);
             }
         }
@@ -673,7 +691,7 @@ namespace LloydMinsterBank
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
-        {            
+        {
             loginForm.TopLevel = false;
             pnlMiddle.Controls.Add(loginForm);
             loginForm.BringToFront();
@@ -726,13 +744,38 @@ namespace LloydMinsterBank
                         lblAccountHolder.Show();
                         lblAccountHolderTitle.Show();
                         userEnteredPin = "";
-                        
+
                     }
                     else if (verify == false)
                     {
                         loginForm.UpdatePinText("Invalid Input");
                         userEnteredPin = "";
                     }
+                }
+                else if (currentForm == "WiithdrawTransactionForm")
+                {
+                    foreach (var acc in chosenAccount)
+                    {
+                        List<double> temp = new List<double>(acc.getBalance());
+                       string getConfirmation = transaction.Withdraw(accountOne, temp[0],int.Parse(userEnteredPin),acc.getSalary());
+                        withdrawTransactionForm.updateText(getConfirmation);
+                        if (getConfirmation == "Succsessful WIthdraw")
+                        {
+                            Thread.Sleep(100);
+                            setCurrentForm("MenuForm");
+                            updateSubForm(getCurrentForm());
+                            lblBack1.Show();
+                            lblBack2.Show();
+                            lblAccountHolder.Show();
+                            lblAccountHolderTitle.Show();
+                            userEnteredPin = "";
+
+                        }
+                    }
+                }
+                else if (currentForm == "TransferTransactionForm")
+                {
+
                 }
 
 
@@ -749,12 +792,12 @@ namespace LloydMinsterBank
 
 
 
-        
+
 
         private void btnP1_Click(object sender, EventArgs e)
         {
             updateSubForm(sideButtons("1"));
-     
+
         }
 
         private void btnP2_Click(object sender, EventArgs e)

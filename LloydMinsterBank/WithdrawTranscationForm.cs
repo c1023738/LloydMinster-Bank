@@ -36,6 +36,7 @@ namespace LloydMinsterBank
                 // Able to withdraw and deposit and move can go bellow 0 depending on overdraft
                 lblTitle.Text = "Current Account Balance: ";
                 lblBalance.Text = balances[0].ToString();
+                
 
             }
             else if (accountOne == "SimpleAccount")
@@ -50,22 +51,13 @@ namespace LloydMinsterBank
 
         }
 
-
-
-
-
-
-
-        public void sendTransaction(string accountOne, string accountTwo, int enteredNumber, int accountOneBalance, int accountTwoBalance)
-        {
-
-        }
+          
 
         public void updateText(string enteredNumber)
         {
             lblDifferent.Text = enteredNumber;
 
-            lblDifferent.Text = enteredNumber;
+            
         }
 
         public void ClearPinText()
