@@ -39,4 +39,3 @@ D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.AccountFo
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.WithdrawForm.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.TransferForm.resources
 D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.WithdrawTranscationForm.resources
-D:\Documents\C#\Assignment\LloydMinsterBank\obj\Debug\LloydMinsterBank.TransferTransactionForm.resources

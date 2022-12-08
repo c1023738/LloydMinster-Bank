@@ -85,12 +85,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqliteDataAccess.cs" />
     <Compile Include="Transaction.cs" />
-    <Compile Include="TransferTransactionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TransferTransactionForm.Designer.cs">
-      <DependentUpon>TransferTransactionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="WithdrawTranscationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,9 +124,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TransferTransactionForm.resx">
-      <DependentUpon>TransferTransactionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WithdrawTranscationForm.resx">
       <DependentUpon>WithdrawTranscationForm.cs</DependentUpon>
     </EmbeddedResource>

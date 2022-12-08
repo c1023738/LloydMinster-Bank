@@ -19,9 +19,27 @@ namespace LloydMinsterBank
 
         public void GetDetails(List<double> balances)
         {
-            lblCurrentAccount.Text = balances[0].ToString();
-            lblSimpleAccount.Text = balances[1].ToString();
-            lblLongTerm.Text = balances[2].ToString();
+            lblLeftCurrentAccount.Text = balances[0].ToString();
+            lblLeftSimpleAccount.Text = balances[1].ToString();
+            lblLeftLongTerm.Text = balances[2].ToString();
+            lblRightLongTermAccount.Text = balances[2].ToString();
+            lblRightSimpleAccount.Text = balances[1].ToString();
+            lblRightCurrentAccount.Text = balances[0].ToString();
+
+        }
+
+
+
+        public void updateText(string enteredNumber)
+        {
+            lblDifferent.Text = enteredNumber;
+
+
+        }
+
+        public void ClearPinText()
+        {
+            lblDifferent.Text = "****";
         }
     }
 }

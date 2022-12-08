@@ -51,7 +51,7 @@ namespace LloydMinsterBank
 
         }
 
-          
+
 
         public void updateText(string enteredNumber)
         {

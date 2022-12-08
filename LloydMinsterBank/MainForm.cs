@@ -35,7 +35,7 @@ namespace LloydMinsterBank
         string getTransactionType;
         List<Account> userAccount = new List<Account>();
         List<Account> chosenAccount = new List<Account>();
-        List<string> customerDetails = new List<string>();
+        List<string> transactionDetails = new List<string>();
         string CurrentForm = "LoginForm";
         string SelectedAccount;
         protected string userEnteredPin;
@@ -44,8 +44,10 @@ namespace LloydMinsterBank
         MenuForm menuForm = new MenuForm();
         LoginForm loginForm = new LoginForm();
         Transaction transaction = new Transaction();
+        TransferForm transferForm = new TransferForm();
+        
         WithdrawTranscationForm withdrawTransactionForm = new WithdrawTranscationForm();
-        TransferTransactionForm transferTransactionForm = new TransferTransactionForm();
+    
         List<Account> accounts = new List<Account>();
         string btn1Text = "Back";
         string btn2Text = "Back";
@@ -56,7 +58,7 @@ namespace LloydMinsterBank
         string accountOne;
         string accountTwo;
 
-
+        int savedPin;
         public void LoadCustomers()
         {
             SqliteDataAccess dbOb = new SqliteDataAccess();
@@ -91,24 +93,118 @@ namespace LloydMinsterBank
         }
 
 
-        public void setBalance(double newBalance, string accountType)
+        public void UpdateCustomer()
         {
-            foreach (var account in chosenAccount)
+            SqliteDataAccess dbOb = new SqliteDataAccess();
+            if (accountOne == "CurrentAccount" || accountTwo == "CurrentAccount")
             {
-                if (accountType == "CurrentAccount")
+                string query = "UPDATE Customer SET[CurrentAccountBalance] = @CurrentAccountBalance " + "WHERE[CustomerID] = @CustomerID";
+                SQLiteCommand myCommand = new SQLiteCommand(query, dbOb.myConnection);
+                myCommand.Parameters.Add(new SQLiteParameter("@CurrentAccountBalance"));
+                myCommand.Parameters.Add(new SQLiteParameter("@CustomerID"));
+                dbOb.myConnection.Open();
+               if (getCurrentForm() == "WithdrawTransactionForm")
                 {
-                    account.setCurrentAccount(newBalance);
+                    if (accountOne == "CurrentAccount")
+                    {
+                        myCommand.Parameters["@CurrentAccountBalance"].Value = double.Parse(transactionDetails[4]);
+                    }
+                    else
+                    {
+                        myCommand.Parameters["@CurrentAccountBalance"].Value = double.Parse(transactionDetails[5]);
+                    }
+                
                 }
-                else if (accountType == "SimpleAccount")
+               else if (getCurrentForm() == "TransferForm")
                 {
-                    account.setSimpleAccount(newBalance);
+                    if (accountOne == "CurrentAccount")
+                    {
+                        myCommand.Parameters["@CurrentAccountBalance"].Value = double.Parse(transactionDetails[5]);
+                    }
+                    else
+                    {
+                        myCommand.Parameters["@CurrentAccountBalance"].Value = double.Parse(transactionDetails[6]);
+                    }
                 }
-                else if (accountType == "LongTermAccount")
-                {
-                    account.setLongTermAccount(newBalance);
-                }
+                
+                myCommand.Parameters["@CustomerID"].Value = int.Parse(transactionDetails[0]);
+                var result = myCommand.ExecuteNonQuery();
+                dbOb.CloseConnection();
             }
+            else if (accountOne == "SimpleAccount" || accountTwo == "SimpleAccount")
+            {
+                string query = "UPDATE Customer SET[SimpleAccountBalance] = @SimpleAccountBalance " + "WHERE[CustomerID] = @CustomerID";
+                SQLiteCommand myCommand = new SQLiteCommand(query, dbOb.myConnection);
+                myCommand.Parameters.Add(new SQLiteParameter("@SimpleAccountBalance"));
+                myCommand.Parameters.Add(new SQLiteParameter("@CustomerID"));
+                dbOb.myConnection.Open();
+                if (getCurrentForm() == "WithdrawTransactionForm")
+                {
+                    if (accountOne == "SimpleAccount")
+                    {
+                        myCommand.Parameters["@SimpleAccountBalance"].Value = double.Parse(transactionDetails[4]);
+                    }
+                    else
+                    {
+                        myCommand.Parameters["@SimpleAccountBalance"].Value = double.Parse(transactionDetails[5]);
+                    }
+
+                }
+                else if (getCurrentForm() == "TransferForm")
+                {
+                    if (accountOne == "SimpleAccount")
+                    {
+                        myCommand.Parameters["@SimpleAccountBalance"].Value = double.Parse(transactionDetails[5]);
+                    }
+                    else
+                    {
+                        myCommand.Parameters["@SimpleAccountBalance"].Value = double.Parse(transactionDetails[6]);
+                    }
+                }
+                myCommand.Parameters["@CustomerID"].Value = int.Parse(transactionDetails[0]);
+                var result = myCommand.ExecuteNonQuery();
+                dbOb.CloseConnection();
+            }
+            else if (accountOne == "LongTermAccountBalance" || accountTwo == "LongTermAccount")
+            {
+                string query = "UPDATE Customer SET[LongTermAccountBalance] = @LongTermAccountBalance " + "WHERE[CustomerID] = @CustomerID";
+                SQLiteCommand myCommand = new SQLiteCommand(query, dbOb.myConnection);
+                myCommand.Parameters.Add(new SQLiteParameter("@LongTermAccountBalance"));
+                myCommand.Parameters.Add(new SQLiteParameter("@CustomerID"));
+                dbOb.myConnection.Open();
+                if (getCurrentForm() == "WithdrawTransactionForm")
+                {
+                    if (accountOne == "LongTermAccount")
+                    {
+                        myCommand.Parameters["@LongTermAccountBalance"].Value = double.Parse(transactionDetails[4]);
+                    }
+                    else
+                    {
+                        myCommand.Parameters["@LongTermAccountBalance"].Value = double.Parse(transactionDetails[5]);
+                    }
+
+                }
+                else if (getCurrentForm() == "TransferForm")
+                {
+                    if (accountOne == "LongTermAccount")
+                    {
+                        myCommand.Parameters["@LongTermAccountBalance"].Value = double.Parse(transactionDetails[5]);
+                    }
+                    else
+                    {
+                        myCommand.Parameters["@LongTermAccountBalance"].Value = double.Parse(transactionDetails[6]);
+                    }
+                }
+
+                myCommand.Parameters["@CustomerID"].Value = int.Parse(transactionDetails[0]);
+                var result = myCommand.ExecuteNonQuery();
+                dbOb.CloseConnection();
+            }
+
+
         }
+
+
 
 
 
@@ -123,6 +219,7 @@ namespace LloydMinsterBank
                     chosenAccount.Add(account);
                     lblAccountHolder.Text = account.getFullName();
                     result = true;
+                    savedPin = pin;
                 }
             }
 
@@ -130,15 +227,8 @@ namespace LloydMinsterBank
             return result;
         }
 
-        public void setSelectedAccount(string account)
-        {
-            SelectedAccount = account;
-        }
 
-        public string getSelectedAccount()
-        {
-            return SelectedAccount;
-        }
+
 
         public void setCurrentForm(string account)
         {
@@ -149,6 +239,7 @@ namespace LloydMinsterBank
         {
             return CurrentForm;
         }
+
 
 
 
@@ -266,7 +357,7 @@ namespace LloydMinsterBank
                 {
                     //Select Current Account
                     accountOne = "CurrentAccount";
-                    CurrentForm = "TransferTransactionForm";
+                    CurrentForm = "TransferForm";
                     return CurrentForm;
 
 
@@ -275,32 +366,32 @@ namespace LloydMinsterBank
                 {
                     // Select Simple Account
                     accountOne = "SimpleAccount";
-                    CurrentForm = "TransferTransactionForm";
+                    CurrentForm = "TransferForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "4")
                 {
                     // Select Long Account
                     accountOne = "LongTermAccount";
-                    CurrentForm = "TransferTransactionForm";
+                    CurrentForm = "TransferForm";
+                    return CurrentForm;
+                }
+                else if (buttonPressed == "6")
+                {
+                    accountTwo = "CurrentAccount";
+                    CurrentForm = "TransferForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "7")
                 {
-                    accountTwo = "CurrentAccount";
-                    CurrentForm = "TransferTransactionForm";
+                    accountTwo = "SimpleAccount";
+                    CurrentForm = "TransferForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "8")
                 {
-                    accountTwo = "SimpleAccount";
-                    CurrentForm = "TransferTransactionForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "9")
-                {
                     accountTwo = "LongTermAccount";
-                    CurrentForm = "TransferTransactionForm";
+                    CurrentForm = "TransferForm";
                     return CurrentForm;
                 }
                 else if (buttonPressed == "LeftBack")
@@ -376,66 +467,6 @@ namespace LloydMinsterBank
                     return CurrentForm;
                 }
             }
-            else if (CurrentForm == "TransferTransactionForm")
-            {
-
-
-                if (buttonPressed == "2")
-                {
-                    //Select Current Account
-                    accountOne = "CurrrentAccount";
-                    CurrentForm = "TransferTransactionForm";
-                    return CurrentForm;
-
-
-                }
-                else if (buttonPressed == "3")
-                {
-                    // Select Simple Account
-                    accountOne = "SimpleAccount";
-                    CurrentForm = "TransferTransactionForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "4")
-                {
-                    // Select Long Account
-                    accountOne = "LongTermAccount";
-                    CurrentForm = "TransferTransactionForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "7")
-                {
-                    accountTwo = "CurrentAccount";
-                    CurrentForm = "TransferTransactionForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "8")
-                {
-                    accountTwo = "SimpleAccount";
-                    CurrentForm = "TransferTransactionForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "9")
-                {
-                    accountTwo = "LongTermAccount";
-                    CurrentForm = "TransferTransactionForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "LeftBack")
-                {
-                    //Return to Menu
-                    CurrentForm = "TransferForm";
-                    return CurrentForm;
-                }
-                else if (buttonPressed == "RightBack")
-                {
-                    // GO to TransactionForm
-
-                    CurrentForm = "TransferForm";
-                    return CurrentForm;
-                }
-            }
-
             return CurrentForm;
         }
 
@@ -500,7 +531,7 @@ namespace LloydMinsterBank
             }
             else if (form == "TransferForm")
             {
-                TransferForm transferForm = new TransferForm();
+                
                 setCurrentForm("TransferForm");
                 transferForm.TopLevel = false;
                 pnlMiddle.Controls.Add(transferForm);
@@ -529,22 +560,7 @@ namespace LloydMinsterBank
                 lblBack1.Text = btn1Text;
                 lblBack2.Text = btn2Text;
             }
-            else if (form == "TransferTransactionForm")
-            {
-
-                setCurrentForm("TransferTransactionForm");
-                transferTransactionForm.TopLevel = false;
-                pnlMiddle.Controls.Add(transferTransactionForm);
-                transferTransactionForm.BringToFront();
-                transferTransactionForm.Show();
-                foreach (var acc in chosenAccount)
-                {
-                    transferTransactionForm.GetDetails(acc.getBalance(), accountOne, accountTwo);
-                }
-
-                lblBack1.Text = btn1Text;
-                lblBack2.Text = btn2Text;
-            }
+           
         }
 
 
@@ -561,6 +577,10 @@ namespace LloydMinsterBank
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
             }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
+            }
         }
 
         private void btnPinNum1_Click(object sender, EventArgs e)
@@ -573,9 +593,11 @@ namespace LloydMinsterBank
             }
             else if (currentForm == "WithdrawTransactionForm")
             {
-
-
                 withdrawTransactionForm.updateText(userEnteredPin);
+            }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
             }
         }
 
@@ -591,6 +613,10 @@ namespace LloydMinsterBank
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
             }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
+            }
         }
 
         private void btnPinNum3_Click(object sender, EventArgs e)
@@ -604,6 +630,10 @@ namespace LloydMinsterBank
             else if (currentForm == "WithdrawTransactionForm")
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
+            }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
             }
         }
 
@@ -619,6 +649,10 @@ namespace LloydMinsterBank
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
             }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
+            }
         }
 
         private void btnPinNum5_Click(object sender, EventArgs e)
@@ -632,6 +666,10 @@ namespace LloydMinsterBank
             else if (currentForm == "WithdrawTransactionForm")
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
+            }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
             }
         }
 
@@ -647,6 +685,10 @@ namespace LloydMinsterBank
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
             }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
+            }
         }
 
         private void btnPinNum7_Click(object sender, EventArgs e)
@@ -661,6 +703,10 @@ namespace LloydMinsterBank
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
             }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
+            }
         }
         private void btnPinNum8_Click(object sender, EventArgs e)
         {
@@ -673,6 +719,10 @@ namespace LloydMinsterBank
             else if (currentForm == "WithdrawTransactionForm")
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
+            }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
             }
         }
 
@@ -687,6 +737,10 @@ namespace LloydMinsterBank
             else if (currentForm == "WithdrawTransactionForm")
             {
                 withdrawTransactionForm.updateText(userEnteredPin);
+            }
+            else if (currentForm == "TransferForm")
+            {
+                transferForm.updateText(userEnteredPin);
             }
         }
 
@@ -712,6 +766,7 @@ namespace LloydMinsterBank
             userEnteredPin = "";
             loginForm.ClearPinText();
             withdrawTransactionForm.ClearPinText();
+            transferForm.ClearPinText();
         }
 
 
@@ -737,6 +792,7 @@ namespace LloydMinsterBank
                     bool verify = Verify(formatedPin);
                     if (verify == true)
                     {
+                        savedPin = formatedPin;
                         setCurrentForm("MenuForm");
                         updateSubForm(getCurrentForm());
                         lblBack1.Show();
@@ -752,29 +808,103 @@ namespace LloydMinsterBank
                         userEnteredPin = "";
                     }
                 }
-                else if (currentForm == "WiithdrawTransactionForm")
+                else if (currentForm == "WithdrawTransactionForm")
+                {
+
+
+                    foreach (var acc in chosenAccount)
+                    {
+                        string[] details = (transaction.Withdraw(accountOne, acc.getBalance(), formatedPin, acc.getSalary())).Split(',');
+                        transactionDetails.Add(acc.getCustomerID().ToString());
+                        transactionDetails.Add(acc.getFullName());
+                        transactionDetails.Add(accountOne);
+                        transactionDetails.Add(acc.getBalance().ToString());
+                        transactionDetails.Add(details[1]);
+                        if (accountOne == "CurrentAccount")
+                        {
+                            if (details[0] == "Succesful Withdraw")
+                            {
+                                acc.setCurrentAccount(double.Parse(transactionDetails[4]));
+                                UpdateCustomer();
+                                setCurrentForm("WithdrawForm");
+                                updateSubForm(getCurrentForm());
+                                transactionDetails.Clear();
+                            }
+
+                        }
+                        else if (accountOne == "SimpleAccount")
+                        {
+                            if (details[0] == "Succesful Withdraw")
+                            {
+                                acc.setSimpleAccount(double.Parse(transactionDetails[1]));
+                                setCurrentForm("WithdrawForm");
+                                updateSubForm(getCurrentForm());
+                            }
+                        }
+                    }
+
+
+
+                    // transaction.Withdraw(accountOne,)
+                }
+                else if (currentForm == "TransferForm")
                 {
                     foreach (var acc in chosenAccount)
                     {
-                        List<double> temp = new List<double>(acc.getBalance());
-                       string getConfirmation = transaction.Withdraw(accountOne, temp[0],int.Parse(userEnteredPin),acc.getSalary());
-                        withdrawTransactionForm.updateText(getConfirmation);
-                        if (getConfirmation == "Succsessful WIthdraw")
+                        string[] details = (transaction.Transfer(accountOne, accountTwo, acc.getBalance(), formatedPin).Split(','));
+                        transactionDetails.Add(acc.getCustomerID().ToString());
+                        transactionDetails.Add(acc.getFullName());
+                        transactionDetails.Add(accountOne);
+                        transactionDetails.Add(accountTwo);
+                        transactionDetails.Add(acc.getBalance().ToString());
+                        transactionDetails.Add(details[1]);
+                        transactionDetails.Add(details[2]);
+                        if (accountOne == "CurrentAccount")
                         {
-                            Thread.Sleep(100);
-                            setCurrentForm("MenuForm");
-                            updateSubForm(getCurrentForm());
-                            lblBack1.Show();
-                            lblBack2.Show();
-                            lblAccountHolder.Show();
-                            lblAccountHolderTitle.Show();
-                            userEnteredPin = "";
+                            if (details[0] == "Succesful Transfer")
+                            {
+                                acc.setCurrentAccount(double.Parse(transactionDetails[5]));
+                                UpdateCustomer();
+                                setCurrentForm("TransferForm");
+                                updateSubForm(getCurrentForm());
+                                transactionDetails.Clear();
+                            }
 
                         }
+                        else if (accountOne == "SimpleAccount")
+                        {
+                            if (details[0] == "Succesful Transferw")
+                            {
+                                acc.setSimpleAccount(double.Parse(transactionDetails[5]));
+                                setCurrentForm("TransferForm");
+                                updateSubForm(getCurrentForm());
+                            }
+                        }
+                        else if (accountOne == "LongTermAccount")
+                        {
+                            if (details[0] == "Succesful Transferw")
+                            {
+                                acc.setLongTermAccount(double.Parse(transactionDetails[5]));
+                                setCurrentForm("TransferForm");
+                                updateSubForm(getCurrentForm());
+                            }
+                            
+                                                        
+
+                        }
+                        else if (accountTwo == "CurrentAccount")
+                        {
+                            acc.setLongTermAccount(double.Parse(transactionDetails[6]));
+                        }
+                        else if (accountTwo == "SimpleAccount")
+                        {
+                            acc.setLongTermAccount(double.Parse(transactionDetails[6]));
+                        }
+                        else if (accountTwo == "LongTermAccount")
+                        {
+                            acc.setLongTermAccount(double.Parse(transactionDetails[6]));
+                        }
                     }
-                }
-                else if (currentForm == "TransferTransactionForm")
-                {
 
                 }
 
